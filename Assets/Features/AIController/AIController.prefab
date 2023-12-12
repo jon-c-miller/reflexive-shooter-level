@@ -87,6 +87,7 @@ Transform:
   - {fileID: 3300776404262521061}
   - {fileID: 6940610423922071745}
   - {fileID: 2605345256999074456}
+  - {fileID: 9111026080039313593}
   m_Father: {fileID: 8240177497158507609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2950428791308870766
@@ -105,6 +106,7 @@ MonoBehaviour:
   projectiles: {fileID: 3300776404262521061}
   unitPrefab: {fileID: 7200566500927079568, guid: f79aad3b241447149988f716e680526f, type: 3}
   units: {fileID: 6940610423922071745}
+  SpawnCenter: {fileID: 9111026080039313593}
 --- !u!1 &1903362590629604236
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +164,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 478149999781687689}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4147858389951255634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9111026080039313593}
+  m_Layer: 0
+  m_Name: Spawn Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9111026080039313593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4147858389951255634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -8,6 +8,8 @@ public class AIControllerV : MonoBehaviour
     [Space]
     [SerializeField] AIUnit unitPrefab;
     [SerializeField] Transform units;
+    [Space]
+    public Transform SpawnCenter;
     
     Queue<AIProjectile> projectilePool = new();
     Queue<AIUnit> unitPool = new();

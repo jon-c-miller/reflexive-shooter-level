@@ -52,7 +52,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
         for (int i = 0; i < model.SpawnCount; i++)
         {
             Debug.Log($"Attempting to spawn...");
-            Vector3 spawnPosition = transform.localPosition;
+            Vector3 spawnPosition = view.SpawnCenter.localPosition;
 
             // Get a random position based on deviation values
             spawnPosition.x += Random.Range(-model.SpawnRangeValueLimits.x, model.SpawnRangeValueLimits.x);
