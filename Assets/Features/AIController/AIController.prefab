@@ -47,11 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 2950428791308870766}
   model:
-    SpawnCount: 1
     AIProjectileLaunchVelocity: 15
     AIProjectileDamage: 1
     SpawnRangeValueLimits: {x: 32, y: 1.5, z: 32}
     ShowLogs: 0
+    RemainingUnits: 1
     PlayerIsInCombatArea: 0
     AIUnits: []
 --- !u!1 &208180511956742403
@@ -227,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 5891934859108981546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -38}
+  m_LocalPosition: {x: 0, y: 3, z: -37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -252,7 +252,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 7, z: 1}
+  m_Size: {x: 10, y: 7, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5459254060984377082
 MonoBehaviour:
