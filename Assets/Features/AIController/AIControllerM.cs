@@ -7,6 +7,7 @@ public class AIControllerM
     [Header("Configuration")]
     public float AIProjectileLaunchVelocity = 15f;
     public int AIProjectileDamage = 1;
+    public int UnitScoreValue = 5;
     public Vector3 SpawnRangeValueLimits = new();
     [Space]
     public bool ShowLogs;

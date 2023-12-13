@@ -40,6 +40,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                 model.PlayerIsInCombatArea = false;
                 SetAIStatsBasedOnLevel(currentLevel);
                 SpawnAI();
+                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.RemainingUnits);
                 break;
 
             case Notifies.AIControllerDisableCurrentUnits:
@@ -55,6 +56,10 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                 {
                     NotifyHandler.N.QueueNotify(Notifies.OnLevelComplete);
                 }
+
+                // Notify the HUD of updated score and units remaining
+                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.RemainingUnits);
+                NotifyHandler.N.QueueNotify(Notifies.OnUpdateScore, model.UnitScoreValue);
                 break;
         }
     }
@@ -95,7 +100,8 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
     void SetAIStatsBasedOnLevel(int currentLevel)
     {
         // Set stat increases for each level beyond 1
-        model.AIProjectileLaunchVelocity += 0.2f * (currentLevel - 1);
+        model.AIProjectileLaunchVelocity = 15f + 0.2f * (currentLevel - 1);
+        model.UnitScoreValue = 5 + 1 * (currentLevel - 1);
     }
 
     void SetAIActiveStatus(bool isActive)

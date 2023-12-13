@@ -45,7 +45,6 @@ public class AIUnit : MonoBehaviour, ICanBeHit
     public void Initialize(IKeepsTargets controller, Vector3 position)
     {
         model.AttackDelay = 1.5f;
-        model.ScoreValue = 5;
         model.CurrentTime = model.TargetVisibleCheckDelay;
         model.AIController = controller;
         view.Model.transform.localPosition = position;
@@ -58,7 +57,6 @@ public class AIUnit : MonoBehaviour, ICanBeHit
     {
         // Set stat increases for each level beyond 1
         model.AttackDelay -= 0.03f * (currentLevel - 1);
-        model.ScoreValue += 5 * (currentLevel - 1);
     }
 
     void CheckPlayerVisible()

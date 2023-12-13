@@ -9,7 +9,6 @@ public class AIUnitM
     public int Health = 1;
     public float AttackDelay = 1.5f;
     public float TargetVisibleCheckDelay = 0.4f;
-    public int ScoreValue = 5;
 
     [Header("Current")]
     public bool TargetIsVisible;

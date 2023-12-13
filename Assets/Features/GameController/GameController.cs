@@ -10,6 +10,12 @@ public class GameController : MonoBehaviour, IListener
     {
         switch (notifyID)
         {
+            case Notifies.OnUpdateScore:
+                int valueChange = (int)data[0];
+                model.Score += valueChange;
+                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateScoreDisplay, model.Score);
+                break;
+
             case Notifies.OnLevelComplete:
                 Debug.Log($"Level {model.Level} complete! Starting next level...");
 
@@ -18,6 +24,7 @@ public class GameController : MonoBehaviour, IListener
                 NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
+                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.Level);
                 break;
 
             case Notifies.OnLevelFailed:
@@ -26,6 +33,12 @@ public class GameController : MonoBehaviour, IListener
                 NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
+
+                // Deduct from the score 10 per current level (keeping it at 0 or above) and update HUD
+                int updatedScore = model.Score - 10 * model.Level;
+                model.Score = updatedScore > 0 ? updatedScore : 0;
+                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateScoreDisplay, model.Score);
+                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.Level);
                 break;
         }
     }
@@ -46,6 +59,7 @@ public class GameController : MonoBehaviour, IListener
         }
         if (model.ActivatePlayerHitDetection)
         {
+            NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
             NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, true);
         }
         if (model.ActivatePlayerMovement)

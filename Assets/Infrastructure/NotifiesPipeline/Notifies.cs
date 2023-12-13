@@ -31,9 +31,25 @@ public enum Notifies
     /// <summary> int currentLevel </summary>
     AIControllerSpawnUnits,
 
+    /// <summary> bool isActive </summary>
+    HUDControllerSetActiveStatus,
+
+    /// <summary> int unitsRemaining </summary>
+    HUDControllerUpdateUnitsRemainingDisplay,
+
+    /// <summary> int healthRemaining </summary>
+    HUDControllerUpdateHealthDisplay,
+
+    /// <summary> int currentScore </summary>
+    HUDControllerUpdateScoreDisplay,
+
+    /// <summary> int unitsRemaining </summary>
     OnAIUnitDestroyed,
 
     OnLevelComplete,
 
     OnLevelFailed,
+
+    /// <summary> int valueChange </summary>
+    OnUpdateScore,
 }
