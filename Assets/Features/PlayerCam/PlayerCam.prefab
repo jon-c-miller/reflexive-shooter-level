@@ -47,14 +47,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 1939000748024005934}
   model:
-    HorizontalSensitivity: 1
-    VerticalSensitivity: 1.5
+    ViewHeight: 0.5
+    HorizontalSensitivity: 2
+    VerticalSensitivity: 3
     ClampVerticalRotation: 1
     VerticalRotationMin: -60
     VerticalRotationMax: 60
     SmoothInput: 1
     SmoothingStrength: 12
-    IsActive: 1
+    IsActive: 0
     VerticalInput: 0
     HorizontalInput: 0
     TargetRotation: {x: 0, y: 0, z: 0, w: 0}

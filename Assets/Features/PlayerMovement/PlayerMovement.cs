@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour, IListener, ICanBeTargeted
                 model.IsActive = isActive;
                 break;
 
+            case Notifies.PlayerMovementReturnToStart:
+                view.InitializePosition();
+                break;
+
             case Notifies.PlayerCamAnnounceSelfTransform:
                 view.Cam = (Transform)data[0];
                 break;

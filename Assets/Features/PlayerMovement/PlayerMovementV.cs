@@ -3,7 +3,10 @@ using UnityEngine;
 public class PlayerMovementV : MonoBehaviour
 {
     public Transform PlayerTransform;
-    public Rigidbody PlayerRigidbody;
+
+    [SerializeField] Rigidbody playerRigidbody;
+    [Space]
+    [SerializeField] Transform startPosition;
 
     [HideInInspector] public Transform Cam;
 
@@ -11,6 +14,11 @@ public class PlayerMovementV : MonoBehaviour
     const string VERTICALINPUT = "Vertical";
 
     float previousCamY;
+
+    public void InitializePosition()
+    {
+        playerRigidbody.position = startPosition.localPosition;
+    }
 
     public void GetInput(PlayerMovementM model)
     {
@@ -21,7 +29,7 @@ public class PlayerMovementV : MonoBehaviour
         // Get jump input
         if (Input.GetKeyDown(model.JumpKey))
         {
-            PlayerRigidbody.AddForce(Vector3.up * model.JumpForce, ForceMode.Impulse);
+            playerRigidbody.AddForce(Vector3.up * model.JumpForce, ForceMode.Impulse);
         }
 
         // Compensate for moving diagonally
@@ -42,7 +50,7 @@ public class PlayerMovementV : MonoBehaviour
         // Get target movement based on normalized camera vectors and input
         model.TargetMovement = forward.normalized * forwardInput + right.normalized * rightInput;
 
-        if (PlayerRigidbody.velocity.y != 0)
+        if (playerRigidbody.velocity.y != 0)
         {
             model.TargetMovement *= model.MidJumpMovementDamping;
         }
@@ -53,11 +61,11 @@ public class PlayerMovementV : MonoBehaviour
         // Apply any movement, and swiftly halt the velocity while there is no input and not in the air
         if (model.TargetMovement != Vector3.zero)
         {
-            PlayerRigidbody.AddForce(model.TargetMovement, ForceMode.VelocityChange);
+            playerRigidbody.AddForce(model.TargetMovement, ForceMode.VelocityChange);
         }
-        else if (PlayerRigidbody.velocity.y == 0)
+        else if (playerRigidbody.velocity.y == 0)
         {
-            PlayerRigidbody.velocity *= model.StopRate;
+            playerRigidbody.velocity *= model.StopRate;
         }
     }
 
@@ -69,7 +77,7 @@ public class PlayerMovementV : MonoBehaviour
             float camY = Cam.transform.localEulerAngles.y;
             if (Mathf.Abs(previousCamY - camY) > 0.01f)
             {
-                PlayerRigidbody.MoveRotation(Quaternion.Euler(new Vector3(0, camY, 0)));
+                playerRigidbody.MoveRotation(Quaternion.Euler(new Vector3(0, camY, 0)));
                 previousCamY = camY;
             }
         }

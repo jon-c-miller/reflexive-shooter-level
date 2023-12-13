@@ -15,6 +15,8 @@ public enum Notifies
     /// <summary> ICanBeTargeted self </summary>
     PlayerMovementAnnounceSelf,
 
+    PlayerMovementReturnToStart,
+
     /// <summary> bool isActive </summary>
     PlayerFiringSetActiveStatus,
 

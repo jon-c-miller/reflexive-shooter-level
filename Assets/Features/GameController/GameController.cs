@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour, IListener
         }
         if (model.ActivatePlayerMovement)
         {
+            NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
             NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, true);
         }
     }
