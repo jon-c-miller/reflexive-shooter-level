@@ -63,7 +63,8 @@ public class AIControllerV : MonoBehaviour
 
     void ReturnUnit(AIUnit unit)
     {
-		unit.SetActiveStatus(false);
+		unit.SetAIActiveStatus(false);
+		unit.SetObjectActiveStatus(false);
 		unitPool.Enqueue(unit);
     }
 

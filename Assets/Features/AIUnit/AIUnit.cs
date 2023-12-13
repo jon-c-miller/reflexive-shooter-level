@@ -27,9 +27,13 @@ public class AIUnit : MonoBehaviour, ICanBeHit
         }
     }
 
-    public void SetActiveStatus(bool isActive)
+    public void SetAIActiveStatus(bool isActive)
     {
         model.IsActive = isActive;
+    }
+
+    public void SetObjectActiveStatus(bool isActive)
+    {
         gameObject.SetActive(isActive);
     }
 

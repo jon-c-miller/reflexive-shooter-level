@@ -94,7 +94,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
     {
         for (int i = 0; i < model.AIUnits.Count; i++)
         {
-            model.AIUnits[i].SetActiveStatus(isActive);
+            model.AIUnits[i].SetAIActiveStatus(isActive);
         }
     }
 }
