@@ -9,6 +9,9 @@ public enum Notifies
     /// <summary> bool isActive </summary>
     PlayerHitSetActiveStatus,
 
+    /// <summary> int currentLevel </summary>
+    PlayerHitSetStatsBasedOnLevel,
+
     /// <summary> bool isActive </summary>
     PlayerMovementSetActiveStatus,
 

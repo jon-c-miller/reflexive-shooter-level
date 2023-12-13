@@ -13,15 +13,18 @@ public class GameController : MonoBehaviour, IListener
             case Notifies.OnLevelComplete:
                 Debug.Log($"Level {model.Level} complete! Starting next level...");
 
-                // Reset player location and start next level
+                // Reset player location and stats and start next level
                 model.Level++;
+                NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
                 break;
 
             case Notifies.OnLevelFailed:
-                // Reset player location and restart level
-
+                // Reset player location and stats and restart level
+                NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
+                NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
+                NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
                 break;
         }
     }

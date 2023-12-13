@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerHitDetectionM
 {
     [Header("Configuration")]
-    public int Health;
+    public int Health = 3;
 
     [Header("Current")]
     public bool IsActive;

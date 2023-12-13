@@ -33,6 +33,12 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
             case Notifies.PlayerMovementAnnounceSelf:
                 model.Player = (ICanBeTargeted)data[0];
                 break;
+
+            case Notifies.PlayerHitSetStatsBasedOnLevel:
+                int currentLevel = (int)data[0];
+                // Grant a base health of 3, plus 1 health for every 2 levels reached
+                model.Health = 3 + (currentLevel / 2);
+                break;
         }
     }
 
