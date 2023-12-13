@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
+    Collider collision;
     Rigidbody rigidBody;
 
     float timeToDisable;
@@ -15,16 +16,18 @@ public class PlayerProjectile : MonoBehaviour
         this.hitAmount = hitAmount;
         transform.localPosition = launchPosition;
         gameObject.SetActive(true);
+        collision.enabled = true;
         rigidBody.AddForce(direction * velocity, ForceMode.Impulse);
     }
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         // Convey hitAmount to ICanBeHit interface (enemy) if not null
-        ICanBeHit hit = other.collider.GetComponentInParent<ICanBeHit>();
+        ICanBeHit hit = other.GetComponentInParent<ICanBeHit>();
         hit?.IHit(hitAmount);
+        collision.enabled = false;
         ReturnProjectile();
-        Debug.Log($"Hit {other.collider.name}.");
+        Debug.Log($"Hit {other.name}.");
     }
 
     void ReturnProjectile()
@@ -41,6 +44,7 @@ public class PlayerProjectile : MonoBehaviour
 
     void Awake()
     {
+        TryGetComponent(out collision);
         TryGetComponent(out rigidBody);
     }
 
