@@ -46,8 +46,9 @@ public class AIUnit : MonoBehaviour, ICanBeHit
 
     public void SetStatsBasedOnLevel(int currentLevel)
     {
-        model.AttackDelay -= 0.03f * currentLevel;
-        model.ScoreValue += 5;
+        // Set stat increases for each level beyond 1
+        model.AttackDelay -= 0.03f * (currentLevel - 1);
+        model.ScoreValue += 5 * (currentLevel - 1);
     }
 
     void CheckPlayerVisible()

@@ -26,21 +26,18 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
     {
         switch (notifyID)
         {
-            case Notifies.OnLevelComplete:
-                // Set the spawn count to be the same as the next level value, and upgrade all AI units
-                model.CurrentLevel++;
-                model.SpawnCount = model.CurrentLevel;
-                UpgradeAIBaseStats();
-                break;
-
             case Notifies.AIControllerSetAIActiveStatus:
                 model.CurrentTarget = (ICanBeTargeted)data[0];
                 model.PlayerIsInCombatArea = !model.PlayerIsInCombatArea;
                 SetAIActiveStatus(model.PlayerIsInCombatArea);
-                Debug.Log($"Obtained target {model.CurrentTarget}. Setting AI active status to {model.PlayerIsInCombatArea}...");
+                if (model.ShowLogs) Debug.Log($"Obtained target {model.CurrentTarget}. Setting AI active status to {model.PlayerIsInCombatArea}...");
                 break;
 
             case Notifies.AIControllerSpawnUnits:
+                int currentLevel = (int)data[0];
+                // Set AI stats based on level, and spawn units equal to the current level
+                model.SpawnCount = currentLevel;
+                SetAIStatsBasedOnLevel(currentLevel);
                 SpawnAI();
                 break;
         }
@@ -51,7 +48,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
         model.AIUnits.Clear();
         for (int i = 0; i < model.SpawnCount; i++)
         {
-            Debug.Log($"Attempting to spawn...");
+            if (model.ShowLogs) Debug.Log($"Attempting to spawn...");
             Vector3 spawnPosition = view.SpawnCenter.localPosition;
 
             // Get a random position based on deviation values
@@ -59,17 +56,16 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
             spawnPosition.y += Random.Range(-model.SpawnRangeValueLimits.y, model.SpawnRangeValueLimits.y);
             spawnPosition.z += Random.Range(-model.SpawnRangeValueLimits.z, model.SpawnRangeValueLimits.z);
 
-            Debug.Log($"Found a random spawn position at {spawnPosition}.");
+            if (model.ShowLogs) Debug.Log($"Found a random spawn position at {spawnPosition}.");
 
             // Check for collision at the intended spawn point, retrying if there was a collision
             if (!Physics.CheckSphere(spawnPosition, 1))
             {
-                Debug.Log($"Spawning unit...");
+                if (model.ShowLogs) Debug.Log($"Spawning unit...");
                 AIUnit unit = view.GetAIUnit();
                 model.AIUnits.Add(unit);
                 unit.Initialize(this, spawnPosition);
-                unit.SetStatsBasedOnLevel(model.CurrentLevel);
-                // unit.SetActiveStatus(true);
+                unit.SetStatsBasedOnLevel(model.SpawnCount);
             }
             else
             {
@@ -79,10 +75,10 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
         }
     }
 
-    void UpgradeAIBaseStats()
+    void SetAIStatsBasedOnLevel(int currentLevel)
     {
-        model.AIProjectileDamage += 1;
-        model.AIProjectileLaunchVelocity += 0.2f;
+        // Set stat increases for each level beyond 1
+        model.AIProjectileLaunchVelocity += 0.2f * (currentLevel - 1);
     }
 
     void SetAIActiveStatus(bool isActive)
@@ -91,10 +87,5 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
         {
             model.AIUnits[i].SetActiveStatus(isActive);
         }
-    }
-
-    void Start()
-    {
-        NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits);
     }
 }

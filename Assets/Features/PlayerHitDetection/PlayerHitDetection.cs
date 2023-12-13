@@ -25,6 +25,11 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
     {
         switch (notifyID)
         {
+            case Notifies.PlayerHitSetActiveStatus:
+                bool isActive = (bool)data[0];
+                model.IsActive = isActive;
+                break;
+
             case Notifies.PlayerMovementAnnounceSelf:
                 model.Player = (ICanBeTargeted)data[0];
                 break;

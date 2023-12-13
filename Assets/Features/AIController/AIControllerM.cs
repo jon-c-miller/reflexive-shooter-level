@@ -10,9 +10,9 @@ public class AIControllerM
     public int AIProjectileDamage = 1;
     public Vector3 SpawnRangeValueLimits = new();
     [Space]
+    public bool ShowLogs;
 
     [Header("Current")]
-    public int CurrentLevel;
     public bool PlayerIsInCombatArea;
     public List<AIUnit> AIUnits = new();
 

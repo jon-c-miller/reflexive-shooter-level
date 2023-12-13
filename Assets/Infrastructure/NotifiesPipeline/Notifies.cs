@@ -7,6 +7,9 @@ public enum Notifies
     PlayerCamAnnounceSelfTransform,
 
     /// <summary> bool isActive </summary>
+    PlayerHitSetActiveStatus,
+
+    /// <summary> bool isActive </summary>
     PlayerMovementSetActiveStatus,
 
     /// <summary> ICanBeTargeted self </summary>
@@ -18,6 +21,7 @@ public enum Notifies
     /// <summary> ICanBeTargeted newTarget </summary>
     AIControllerSetAIActiveStatus,
 
+    /// <summary> int currentLevel </summary>
     AIControllerSpawnUnits,
 
     OnLevelComplete,
