@@ -1,5 +1,6 @@
 using UnityEngine;
 
+/// <summary> Handles coordinating game flow and activating each module. </summary>
 public class GameController : MonoBehaviour, IListener
 {
     [SerializeField] GameControllerV view;

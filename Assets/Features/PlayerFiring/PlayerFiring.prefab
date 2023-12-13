@@ -192,13 +192,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 6737620207152369805}
   model:
+    Damage: 10
     LaunchVelocity: 40
     CameraOffset: {x: 0.5, y: 0.1, z: 0.7}
     FireDirectionEndDistance: 750
-    ReticleDefaultDistance: 0.3
+    ReticleHiddenDistance: 0.3
     ReticleHitSizeModifier: 0.01
-    ReticleNoHitSizeModifier: 3
-    HideReticleWhenNoHit: 1
     ValidHitTags:
     - Environment
     - Enemy
@@ -207,7 +206,7 @@ MonoBehaviour:
     ShowDebugRayToHit: 0
     LogHitObject: 0
     LaunchKey: 323
-    IsActive: 1
+    IsActive: 0
     ProjectedEndPoint: {x: 0, y: 0, z: 0}
     LaunchPoint: {x: 0, y: 0, z: 0}
 --- !u!1 &6179869979341810182

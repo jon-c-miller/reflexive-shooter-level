@@ -55,7 +55,7 @@ public class PlayerFiringV : MonoBehaviour
 			AddProjectile(1);
         }
         PlayerProjectile projectile = projectilePool.Dequeue();
-        projectile.Launch(model.LaunchDirection, LaunchPoint.localPosition, model.LaunchVelocity);
+        projectile.Launch(model.LaunchDirection, LaunchPoint.localPosition, model.LaunchVelocity, model.Damage);
     }
 
 	void AddProjectile(int amount)

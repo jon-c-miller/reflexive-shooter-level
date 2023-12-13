@@ -50,7 +50,7 @@ MonoBehaviour:
     SpawnCount: 1
     AIProjectileLaunchVelocity: 15
     AIProjectileDamage: 1
-    SpawnRangeValueLimits: {x: 5, y: 1, z: 5}
+    SpawnRangeValueLimits: {x: 32, y: 1.5, z: 32}
     ShowLogs: 0
     PlayerIsInCombatArea: 0
     AIUnits: []

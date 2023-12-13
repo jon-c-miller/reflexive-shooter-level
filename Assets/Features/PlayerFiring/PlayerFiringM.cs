@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerFiringM
 {
     [Header("Configuration")]
+    public int Damage = 10;
     public float LaunchVelocity = 35f;
     public Vector3 CameraOffset = new(0.5f, 0.1f, 0.7f);
     public float FireDirectionEndDistance = 750f;

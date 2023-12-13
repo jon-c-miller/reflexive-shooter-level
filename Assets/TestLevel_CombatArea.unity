@@ -1873,22 +1873,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIController
       objectReference: {fileID: 0}
-    - target: {fileID: 464718616742524663, guid: f7f51658279e726409d1d179bcd20931, type: 3}
-      propertyPath: model.SpawnCount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 464718616742524663, guid: f7f51658279e726409d1d179bcd20931, type: 3}
-      propertyPath: model.SpawnRangeValueLimits.x
-      value: 32
-      objectReference: {fileID: 0}
-    - target: {fileID: 464718616742524663, guid: f7f51658279e726409d1d179bcd20931, type: 3}
-      propertyPath: model.SpawnRangeValueLimits.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 464718616742524663, guid: f7f51658279e726409d1d179bcd20931, type: 3}
-      propertyPath: model.SpawnRangeValueLimits.z
-      value: 32
-      objectReference: {fileID: 0}
     - target: {fileID: 1288845445822572950, guid: f7f51658279e726409d1d179bcd20931, type: 3}
       propertyPath: m_Center.x
       value: -12
@@ -1944,10 +1928,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6808883523546947926, guid: 4be0e8c418760e84589cec85c2baa9a1, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8802017337663310619, guid: 4be0e8c418760e84589cec85c2baa9a1, type: 3}
-      propertyPath: model.IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8802017337663310619, guid: 4be0e8c418760e84589cec85c2baa9a1, type: 3}
@@ -2159,6 +2139,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.Level
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5145691331248241405, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
