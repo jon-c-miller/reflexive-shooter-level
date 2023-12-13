@@ -7,26 +7,41 @@ public class AIProjectile : MonoBehaviour
 
     float timeToDisable;
     int hitAmount;
+    bool hasHit;
 
 	public static event System.Action<AIProjectile> OnReturnAIProjectile;
     
     public void Launch(Vector3 direction, Vector3 launchPosition, float velocity, int hitAmount)
     {
-        timeToDisable = 6;
+        timeToDisable = 5;
         this.hitAmount = hitAmount;
         Quaternion launchDirection = Quaternion.LookRotation(direction);
         transform.SetPositionAndRotation(launchPosition, launchDirection);
         gameObject.SetActive(true);
+        hasHit = false;
         collision.enabled = true;
+        rigidBody.useGravity = false;
         rigidBody.AddForce(direction * velocity, ForceMode.Impulse);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        // Prevent projectiles that bounce off of the environment from colliding with player
+        hasHit = true;
+        rigidBody.useGravity = true;
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if (hasHit)
+        {
+            return;
+        }
+
         // Convey hitAmount to ICanBeHit interface (player) if not null
         ICanBeHit hit = other.GetComponentInParent<ICanBeHit>();
         hit?.IHit(hitAmount);
-        collision.enabled = false;
+        hasHit = true;
         ReturnProjectile();
         // Debug.Log($"Hit {other.name}.");
     }
