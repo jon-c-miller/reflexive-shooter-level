@@ -36,9 +36,18 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
             case Notifies.AIControllerSpawnUnits:
                 int currentLevel = (int)data[0];
                 // Set AI stats based on level, and spawn units equal to the current level
-                model.SpawnCount = currentLevel;
+                model.RemainingUnits = currentLevel;
+                model.PlayerIsInCombatArea = false;
                 SetAIStatsBasedOnLevel(currentLevel);
                 SpawnAI();
+                break;
+
+            case Notifies.OnAIUnitDestroyed:
+                model.RemainingUnits--;
+                if (model.RemainingUnits <= 0)
+                {
+                    NotifyHandler.N.QueueNotify(Notifies.OnLevelComplete);
+                }
                 break;
         }
     }
@@ -46,7 +55,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
     void SpawnAI()
     {
         model.AIUnits.Clear();
-        for (int i = 0; i < model.SpawnCount; i++)
+        for (int i = 0; i < model.RemainingUnits; i++)
         {
             if (model.ShowLogs) Debug.Log($"Attempting to spawn...");
             Vector3 spawnPosition = view.SpawnCenter.localPosition;
@@ -65,7 +74,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                 AIUnit unit = view.GetAIUnit();
                 model.AIUnits.Add(unit);
                 unit.Initialize(this, spawnPosition);
-                unit.SetStatsBasedOnLevel(model.SpawnCount);
+                unit.SetStatsBasedOnLevel(model.RemainingUnits);
             }
             else
             {

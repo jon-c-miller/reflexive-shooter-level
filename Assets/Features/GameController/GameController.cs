@@ -11,10 +11,12 @@ public class GameController : MonoBehaviour, IListener
         switch (notifyID)
         {
             case Notifies.OnLevelComplete:
-                model.Level++;
+                Debug.Log($"Level {model.Level} complete! Starting next level...");
 
                 // Reset player location and start next level
-                
+                model.Level++;
+                NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
+                NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
                 break;
 
             case Notifies.OnLevelFailed:

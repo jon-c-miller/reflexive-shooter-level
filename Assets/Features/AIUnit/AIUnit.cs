@@ -22,6 +22,7 @@ public class AIUnit : MonoBehaviour, ICanBeHit
         // Return unit if health depleted
         if (model.Health == 0)
         {
+            NotifyHandler.N.QueueNotify(Notifies.OnAIUnitDestroyed);
             OnReturnAIUnit?.Invoke(this);
         }
     }

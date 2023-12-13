@@ -5,7 +5,6 @@ using UnityEngine;
 public class AIControllerM
 {
     [Header("Configuration")]
-    public int SpawnCount = 1;
     public float AIProjectileLaunchVelocity = 15f;
     public int AIProjectileDamage = 1;
     public Vector3 SpawnRangeValueLimits = new();
@@ -13,6 +12,7 @@ public class AIControllerM
     public bool ShowLogs;
 
     [Header("Current")]
+    public int RemainingUnits = 1;
     public bool PlayerIsInCombatArea;
     public List<AIUnit> AIUnits = new();
 

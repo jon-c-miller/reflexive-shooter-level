@@ -26,6 +26,8 @@ public enum Notifies
     /// <summary> int currentLevel </summary>
     AIControllerSpawnUnits,
 
+    OnAIUnitDestroyed,
+
     OnLevelComplete,
 
     OnLevelFailed,
