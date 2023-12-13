@@ -42,6 +42,13 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                 SpawnAI();
                 break;
 
+            case Notifies.AIControllerDisableCurrentUnits:
+                for (int i = 0; i < model.CurrentLevelUnits.Count; i++)
+                {
+                    model.CurrentLevelUnits[i].RecycleUnit();
+                }
+                break;
+
             case Notifies.OnAIUnitDestroyed:
                 model.RemainingUnits--;
                 if (model.RemainingUnits <= 0)
@@ -54,7 +61,8 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
 
     void SpawnAI()
     {
-        model.AIUnits.Clear();
+        model.CurrentLevelUnits.Clear();
+        // Spawn the desired amount
         for (int i = 0; i < model.RemainingUnits; i++)
         {
             if (model.ShowLogs) Debug.Log($"Attempting to spawn...");
@@ -72,7 +80,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
             {
                 if (model.ShowLogs) Debug.Log($"Spawning unit...");
                 AIUnit unit = view.GetAIUnit();
-                model.AIUnits.Add(unit);
+                model.CurrentLevelUnits.Add(unit);
                 unit.Initialize(this, spawnPosition);
                 unit.SetStatsBasedOnLevel(model.RemainingUnits);
             }
@@ -92,9 +100,9 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
 
     void SetAIActiveStatus(bool isActive)
     {
-        for (int i = 0; i < model.AIUnits.Count; i++)
+        for (int i = 0; i < model.CurrentLevelUnits.Count; i++)
         {
-            model.AIUnits[i].SetAIActiveStatus(isActive);
+            model.CurrentLevelUnits[i].SetAIActiveStatus(isActive);
         }
     }
 }

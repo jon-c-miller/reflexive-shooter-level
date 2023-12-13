@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour, IListener
 
             case Notifies.OnLevelFailed:
                 // Reset player location and stats and restart level
+                NotifyHandler.N.QueueNotify(Notifies.AIControllerDisableCurrentUnits);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);

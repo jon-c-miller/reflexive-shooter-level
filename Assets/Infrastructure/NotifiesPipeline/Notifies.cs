@@ -26,6 +26,8 @@ public enum Notifies
     /// <summary> ICanBeTargeted newTarget </summary>
     AIControllerSetAIActiveStatus,
 
+    AIControllerDisableCurrentUnits,
+
     /// <summary> int currentLevel </summary>
     AIControllerSpawnUnits,
 

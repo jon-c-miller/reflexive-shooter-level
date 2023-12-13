@@ -23,8 +23,13 @@ public class AIUnit : MonoBehaviour, ICanBeHit
         if (model.Health == 0)
         {
             NotifyHandler.N.QueueNotify(Notifies.OnAIUnitDestroyed);
-            OnReturnAIUnit?.Invoke(this);
+            RecycleUnit();
         }
+    }
+
+    public void RecycleUnit()
+    {
+        OnReturnAIUnit?.Invoke(this);
     }
 
     public void SetAIActiveStatus(bool isActive)
