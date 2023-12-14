@@ -50,7 +50,8 @@ public class PlayerMovementV : MonoBehaviour
         // Get target movement based on normalized camera vectors and input
         model.TargetMovement = forward.normalized * forwardInput + right.normalized * rightInput;
 
-        if (playerRigidbody.velocity.y != 0)
+        // Dampen movement whilst in midair (above ground and velocity sufficiently greater than 0)
+        if (PlayerTransform.localPosition.y > 0.6f && Mathf.Abs(playerRigidbody.velocity.y) > 0.1f)
         {
             model.TargetMovement *= model.MidJumpMovementDamping;
         }
@@ -62,10 +63,6 @@ public class PlayerMovementV : MonoBehaviour
         if (model.TargetMovement != Vector3.zero)
         {
             playerRigidbody.AddForce(model.TargetMovement, ForceMode.VelocityChange);
-        }
-        else if (playerRigidbody.velocity.y == 0)
-        {
-            playerRigidbody.velocity *= model.StopRate;
         }
     }
 

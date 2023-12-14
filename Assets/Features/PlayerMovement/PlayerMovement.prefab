@@ -128,8 +128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   view: {fileID: 4454016838209134474}
   model:
-    ForwardMoveRate: 25
-    StrafeRate: 20
+    ForwardMoveRate: 22
+    StrafeRate: 18
     StopRate: 0.1
     JumpForce: 10
     MidJumpMovementDamping: 0.3
