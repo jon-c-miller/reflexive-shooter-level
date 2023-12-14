@@ -23,7 +23,7 @@ public enum Notifies
     /// <summary> bool isActive </summary>
     PlayerFiringSetActiveStatus,
 
-    /// <summary> ICanBeTargeted newTarget </summary>
+    /// <summary> ICanBeTargeted newTarget, bool isActive </summary>
     AIControllerSetAIActiveStatus,
 
     AIControllerDisableCurrentUnits,

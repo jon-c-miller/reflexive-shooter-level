@@ -2117,9 +2117,25 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2605345256999074456, guid: f7f51658279e726409d1d179bcd20931, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -34
+      objectReference: {fileID: 0}
     - target: {fileID: 2950428791308870766, guid: f7f51658279e726409d1d179bcd20931, type: 3}
       propertyPath: levelEntryDetector
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5891934859108981546, guid: f7f51658279e726409d1d179bcd20931, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6035305506886828039, guid: f7f51658279e726409d1d179bcd20931, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7543944005087995309, guid: f7f51658279e726409d1d179bcd20931, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 8240177497158507609, guid: f7f51658279e726409d1d179bcd20931, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2239,6 +2255,10 @@ PrefabInstance:
     - target: {fileID: 7396903941155787233, guid: 7b5c608336e9b4e4ca7edadab2c9f97e, type: 3}
       propertyPath: model.StrafeRate
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396903941155787233, guid: 7b5c608336e9b4e4ca7edadab2c9f97e, type: 3}
+      propertyPath: model.ForwardMoveRate
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7610255252574955922, guid: 7b5c608336e9b4e4ca7edadab2c9f97e, type: 3}
       propertyPath: m_Enabled
@@ -2395,6 +2415,10 @@ PrefabInstance:
       propertyPath: model.IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6696969538000599855, guid: 18c50640b050a6840845839d66d9590a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2456,6 +2480,10 @@ PrefabInstance:
     - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
       propertyPath: model.Level
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.ActivateAIController
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5145691331248241405, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2574,9 +2602,9 @@ SceneRoots:
   - {fileID: 2671273097106174034}
   - {fileID: 6491255922121354958}
   - {fileID: 396611155396870003}
+  - {fileID: 1258968110}
   - {fileID: 2131412461783642555}
   - {fileID: 1083785317077885983}
   - {fileID: 3821166182895761940}
   - {fileID: 1967634830548433363}
   - {fileID: 531771251}
-  - {fileID: 1258968110}

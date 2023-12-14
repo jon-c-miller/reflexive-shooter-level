@@ -27,8 +27,16 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
         switch (notifyID)
         {
             case Notifies.AIControllerSetAIActiveStatus:
+                bool isActive = (bool)data[1];
+
+                // Ignore attempts to update AI status without any change from true to false
+                if (model.PlayerIsInCombatArea == isActive)
+                {
+                    return;
+                }
+
                 model.CurrentTarget = (ICanBeTargeted)data[0];
-                model.PlayerIsInCombatArea = !model.PlayerIsInCombatArea;
+                model.PlayerIsInCombatArea = isActive;
                 SetAIActiveStatus(model.PlayerIsInCombatArea);
                 if (model.ShowLogs) Debug.Log($"Obtained target {model.CurrentTarget}. Setting AI active status to {model.PlayerIsInCombatArea}...");
                 break;

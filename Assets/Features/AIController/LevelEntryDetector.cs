@@ -2,17 +2,14 @@ using UnityEngine;
 
 public class LevelEntryDetector : MonoBehaviour
 {
-    const string PLAYERTAG = "Player";
+    [SerializeField] bool collisionEnablesAI;
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        // Notify AIController to update its target and reverse AI active status when player exits (passes through) trigger area
-        Debug.Log($"AIControllerV: {other.name} exited collider.");
-        if (other.CompareTag(PLAYERTAG))
-        {
-            Debug.Log($"AIControllerV: setting {other.name} as target...");
-            other.TryGetComponent(out ICanBeTargeted target);
-            NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, target);
-        }
+        // Notify AIController to update its target and AI active status when player enters trigger area
+        // Physics layer collision is limited to Player layer only, making tag checking redundant
+        other.TryGetComponent(out ICanBeTargeted target);
+        NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, target, collisionEnablesAI);
+        Debug.Log($"AIControllerV: {other.name} entered collider.");
     }
 }
