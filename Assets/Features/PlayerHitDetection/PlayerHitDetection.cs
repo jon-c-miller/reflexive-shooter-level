@@ -1,5 +1,6 @@
 using UnityEngine;
 
+/// <summary> Handles providing hit detection for incoming AI projectiles and combat area entry/exit. </summary>
 public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
 {
     [SerializeField] PlayerHitDetectionV view;

@@ -7,6 +7,7 @@ public class GameControllerM
     public bool ActivatePlayerCamera;
     public bool ActivatePlayerFiring;
     public bool ActivatePlayerHitDetection;
+    public bool ActivatePlayerHUD;
     public bool ActivatePlayerMovement;
     [Space]
     public bool ActivateAIController;

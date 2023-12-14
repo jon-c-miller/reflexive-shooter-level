@@ -12,4 +12,7 @@ public class HUDControllerM
     [Space]
     public int ScoreTextSize;
     public Color ScoreTextColor;
+    [Space]
+    public int LevelTextSize;
+    public Color LevelTextColor;
 }

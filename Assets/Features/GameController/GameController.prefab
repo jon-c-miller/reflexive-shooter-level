@@ -94,6 +94,7 @@ MonoBehaviour:
     ActivatePlayerCamera: 1
     ActivatePlayerFiring: 1
     ActivatePlayerHitDetection: 1
+    ActivatePlayerHUD: 1
     ActivatePlayerMovement: 1
     ActivateAIController: 1
     Score: 0

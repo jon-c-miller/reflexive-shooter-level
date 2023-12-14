@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 2199981995725184324}
   - component: {fileID: 1159467427826912603}
   - component: {fileID: 2727987356382541198}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Target Point
   m_TagString: Player
   m_Icon: {fileID: 0}

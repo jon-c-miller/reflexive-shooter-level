@@ -43,6 +43,9 @@ public enum Notifies
     /// <summary> int currentScore </summary>
     HUDControllerUpdateScoreDisplay,
 
+    /// <summary> int currentLevel </summary>
+    HUDControllerUpdateLevelDisplay,
+
     /// <summary> int unitsRemaining </summary>
     OnAIUnitDestroyed,
 

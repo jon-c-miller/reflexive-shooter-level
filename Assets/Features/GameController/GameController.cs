@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour, IListener
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
                 NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.Level);
+                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateLevelDisplay, model.Level);
                 break;
 
             case Notifies.OnLevelFailed:
@@ -66,6 +67,11 @@ public class GameController : MonoBehaviour, IListener
         {
             NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
             NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, true);
+        }
+        if (model.ActivatePlayerHUD)
+        {
+            NotifyHandler.N.QueueNotify(Notifies.HUDControllerSetActiveStatus, true);
+            NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateLevelDisplay, model.Level);
         }
     }
 }

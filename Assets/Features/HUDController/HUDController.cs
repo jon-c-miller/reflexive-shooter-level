@@ -13,6 +13,7 @@ public class HUDController : MonoBehaviour, IListener
             case Notifies.HUDControllerSetActiveStatus:
                 bool isActive = (bool)data[0];
                 view.SetUIActiveStatus(isActive);
+                view.SetTextSizeAndColor(model);
                 break;
 
             case Notifies.HUDControllerUpdateUnitsRemainingDisplay:
@@ -29,7 +30,11 @@ public class HUDController : MonoBehaviour, IListener
                 int currentScore = (int)data[0];
                 view.UpdateScoreDisplay(currentScore);
                 break;
-                
+
+            case Notifies.HUDControllerUpdateLevelDisplay:
+                int currentLevel = (int)data[0];
+                view.UpdateLevelDisplay(currentLevel);
+                break;
         }
     }
 }
