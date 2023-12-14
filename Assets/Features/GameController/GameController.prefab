@@ -92,7 +92,7 @@ MonoBehaviour:
   view: {fileID: 2352846857200642398}
   model:
     ActivatePlayerCamera: 1
-    ActivatePlayerFiring: 1
+    ActivatePlayerFiring: 0
     ActivatePlayerHitDetection: 1
     ActivatePlayerHUD: 1
     ActivatePlayerMovement: 1

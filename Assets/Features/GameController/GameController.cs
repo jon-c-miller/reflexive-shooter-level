@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour, IListener
 
                 // Reset player location and stats and start next level
                 model.Level++;
+                NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, false);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementReturnToStart);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);

@@ -13,6 +13,12 @@ public class PlayerFiring : MonoBehaviour, IListener
             case Notifies.PlayerFiringSetActiveStatus:
                 bool isActive = (bool)data[0];
                 model.IsActive = isActive;
+                // If enabling, reset the reticle position for smooth transition into combat
+                if (isActive)
+                {
+                    ResetReticle();
+                }
+                view.gameObject.SetActive(isActive);
                 break;
 
             case Notifies.PlayerCamAnnounceSelfTransform:
@@ -87,12 +93,17 @@ public class PlayerFiring : MonoBehaviour, IListener
         }
         else
         {
-            // Get reticle scale based on modifiers, and get position slightly forward of camera (hide reticle if needed)
-            reticlePosition = view.Cam.localPosition + view.Cam.forward.normalized * model.ReticleHiddenDistance;
-
-            // Apply new position near camera to reticle for a smooth transition when it lerps back to hit point
-            view.UpdateReticlePositionAndScale(reticlePosition, distanceBasedSize);
+            ResetReticle();
         }
+    }
+
+    void ResetReticle()
+    {
+        // Get reticle scale based on modifiers, and get position slightly forward of camera (hide reticle if needed)
+        Vector3 reticlePosition = view.Cam.localPosition + view.Cam.forward.normalized * model.ReticleHiddenDistance;
+
+        // Apply new position near camera to reticle for a smooth transition when it lerps back to hit point
+        view.UpdateReticlePositionAndScale(reticlePosition, 0);
     }
     
     void Update()
