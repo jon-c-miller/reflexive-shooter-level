@@ -10,6 +10,7 @@ public class PlayerMovementM
     [Space]
     public float JumpForce = 5f;
     public float MidJumpMovementDamping = 0.3f;
+    public bool AllowInfiniteJump;
 
     [Header("Keybindings")]
     public KeyCode MoveForwardKey = KeyCode.W;
