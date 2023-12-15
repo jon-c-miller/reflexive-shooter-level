@@ -2543,13 +2543,17 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2605345256999074456, guid: f7f51658279e726409d1d179bcd20931, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -34
-      objectReference: {fileID: 0}
     - target: {fileID: 2950428791308870766, guid: f7f51658279e726409d1d179bcd20931, type: 3}
       propertyPath: levelEntryDetector
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222658895135238216, guid: f7f51658279e726409d1d179bcd20931, type: 3}
+      propertyPath: m_Size.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222658895135238216, guid: f7f51658279e726409d1d179bcd20931, type: 3}
+      propertyPath: m_Size.y
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5891934859108981546, guid: f7f51658279e726409d1d179bcd20931, type: 3}
       propertyPath: m_Layer
@@ -2558,10 +2562,6 @@ PrefabInstance:
     - target: {fileID: 6035305506886828039, guid: f7f51658279e726409d1d179bcd20931, type: 3}
       propertyPath: m_Layer
       value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7543944005087995309, guid: f7f51658279e726409d1d179bcd20931, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 8240177497158507609, guid: f7f51658279e726409d1d179bcd20931, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2669,14 +2669,6 @@ PrefabInstance:
     - target: {fileID: 4426514980741287283, guid: 7b5c608336e9b4e4ca7edadab2c9f97e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5222419587471103708, guid: 7b5c608336e9b4e4ca7edadab2c9f97e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5222419587471103708, guid: 7b5c608336e9b4e4ca7edadab2c9f97e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 7610255252574955922, guid: 7b5c608336e9b4e4ca7edadab2c9f97e, type: 3}
       propertyPath: m_Enabled
