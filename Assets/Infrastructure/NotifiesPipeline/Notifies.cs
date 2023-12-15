@@ -1,7 +1,20 @@
 public enum Notifies
 {
+    /// <summary> ICanBeTargeted newTarget, bool isActive </summary>
+    AIControllerSetAIActiveStatus,
+
+    /// <summary> bool isActive </summary>
+    HUDControllerSetActiveStatus,
+
     /// <summary> bool isActive </summary>
     PlayerCamSetActiveStatus,
+
+    /// <summary> bool isActive </summary>
+    PlayerFiringSetActiveStatus,
+
+    /// <summary> bool isActive </summary>
+    PlayerMovementSetActiveStatus,
+
 
     /// <summary> Transform camTransform </summary>
     PlayerCamAnnounceSelfTransform,
@@ -15,20 +28,11 @@ public enum Notifies
     /// <summary> int currentLevel </summary>
     PlayerHitSetStatsBasedOnLevel,
 
-    /// <summary> bool isActive </summary>
-    PlayerMovementSetActiveStatus,
-
     /// <summary> ICanBeTargeted self </summary>
     PlayerMovementAnnounceSelf,
 
     /// <summary> n/a </summary>
     PlayerMovementInitialize,
-
-    /// <summary> bool isActive </summary>
-    PlayerFiringSetActiveStatus,
-
-    /// <summary> ICanBeTargeted newTarget, bool isActive </summary>
-    AIControllerSetAIActiveStatus,
 
     /// <summary> n/a </summary>
     AIControllerDisableCurrentUnits,
@@ -36,23 +40,25 @@ public enum Notifies
     /// <summary> int currentLevel </summary>
     AIControllerSpawnUnits,
 
-    /// <summary> bool isActive </summary>
-    HUDControllerSetActiveStatus,
+
+    /// <summary> SoundIDs soundToPlay </summary>
+    PlaySound,
+
+    /// <summary> int valueChange </summary>
+    UpdateScore,
+
 
     /// <summary> int unitsRemaining </summary>
-    HUDControllerUpdateUnitsRemainingDisplay,
-
-    /// <summary> int healthRemaining </summary>
-    HUDControllerUpdateHealthDisplay,
-
-    /// <summary> int currentScore </summary>
-    HUDControllerUpdateScoreDisplay,
-
-    /// <summary> int currentLevel </summary>
-    HUDControllerUpdateLevelDisplay,
+    OnAICountUpdated,
 
     /// <summary> int unitsRemaining </summary>
     OnAIUnitDestroyed,
+
+    /// <summary> n/a </summary>
+    OnLevelEnter,
+
+    /// <summary> n/a </summary>
+    OnLevelExit,
 
     /// <summary> n/a </summary>
     OnLevelStart,
@@ -66,9 +72,12 @@ public enum Notifies
     /// <summary> n/a </summary>
     OnLevelFailed,
 
-    /// <summary> int valueChange </summary>
-    OnUpdateScore,
+    /// <summary> int healthRemaining </summary>
+    OnPlayerHealthUpdated,
 
-    /// <summary> SoundIDs soundToPlay </summary>
-    OnPlaySound,
+    /// <summary> int newScore </summary>
+    OnScoreDisplayUpdated,
+
+    /// <summary> int currentLevel </summary>
+    OnLevelDisplayUpdated,
 }

@@ -10,10 +10,18 @@ public class GameController : MonoBehaviour, IListener
     {
         switch (notifyID)
         {
-            case Notifies.OnUpdateScore:
+            case Notifies.UpdateScore:
                 int valueChange = (int)data[0];
                 model.Score += valueChange;
-                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateScoreDisplay, model.Score);
+                NotifyHandler.N.QueueNotify(Notifies.OnScoreDisplayUpdated, model.Score);
+                break;
+
+            case Notifies.OnLevelEnter:
+
+                break;
+
+            case Notifies.OnLevelExit:
+
                 break;
             
             case Notifies.OnLevelStart:
@@ -29,7 +37,7 @@ public class GameController : MonoBehaviour, IListener
                 // Deduct from the score 10 per current level (keeping it at 0 or above) and update HUD
                 int updatedScore = model.Score - 10 * model.Level;
                 model.Score = updatedScore > 0 ? updatedScore : 0;
-                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateScoreDisplay, model.Score);
+                NotifyHandler.N.QueueNotify(Notifies.OnScoreDisplayUpdated, model.Score);
                 InitializeModulesForLevelStart();
                 break;
 
@@ -60,8 +68,8 @@ public class GameController : MonoBehaviour, IListener
         NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
         NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, true);
         NotifyHandler.N.QueueNotify(Notifies.PlayerMovementInitialize);
-        NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.Level);
-        NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateLevelDisplay, model.Level);
+        NotifyHandler.N.QueueNotify(Notifies.OnAICountUpdated, model.Level);
+        NotifyHandler.N.QueueNotify(Notifies.OnLevelDisplayUpdated, model.Level);
     }
 
     void OnViewFadeToTransparentRestartLevel()
@@ -102,7 +110,7 @@ public class GameController : MonoBehaviour, IListener
             if (model.ActivatePlayerHUD)
             {
                 NotifyHandler.N.QueueNotify(Notifies.HUDControllerSetActiveStatus, true);
-                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateLevelDisplay, model.Level);
+                NotifyHandler.N.QueueNotify(Notifies.OnLevelDisplayUpdated, model.Level);
             }
             if (model.ActivatePlayerFiring)
             {

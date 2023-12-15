@@ -21,8 +21,8 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
         model.Health -= amount;
 
         // Notify the HUD of updated health and play hit sound
-        NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateHealthDisplay, model.Health);
-        NotifyHandler.N.QueueNotify(Notifies.OnPlaySound, SoundIDs.PlayerHit);
+        NotifyHandler.N.QueueNotify(Notifies.OnPlayerHealthUpdated, model.Health);
+        NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.PlayerHit);
 
         // Defeat if health depleted
         if (model.Health == 0)
@@ -49,7 +49,7 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
                 int currentLevel = (int)data[0];
                 // Grant a base health of 3, plus 1 health for every 2 levels reached
                 model.Health = 3 + (currentLevel / 2);
-                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateHealthDisplay, model.Health);
+                NotifyHandler.N.QueueNotify(Notifies.OnPlayerHealthUpdated, model.Health);
                 break;
         }
     }

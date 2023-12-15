@@ -58,7 +58,7 @@ public class PlayerFiringV : MonoBehaviour
         projectile.Launch(model.LaunchDirection, LaunchPoint.localPosition, model.LaunchVelocity, model.Damage);
 
         // Play fire sound
-        NotifyHandler.N.QueueNotify(Notifies.OnPlaySound, SoundIDs.PlayerFire);
+        NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.PlayerFire);
     }
 
 	void AddProjectile(int amount)

@@ -21,7 +21,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
             view.GetProjectile().Launch(launchDirection, launchPosition, model.AIProjectileLaunchVelocity, model.AIProjectileDamage);
             
             // Play enemy fire sound
-            NotifyHandler.N.QueueNotify(Notifies.OnPlaySound, SoundIDs.EnemyFire);
+            NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.EnemyFire);
         }
     }
 
@@ -51,7 +51,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                 model.PlayerIsInCombatArea = false;
                 SetAIStatsBasedOnLevel(currentLevel);
                 SpawnAI();
-                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.RemainingUnits);
+                // NotifyHandler.N.QueueNotify(Notifies.OnAICountUpdated, model.RemainingUnits);
                 break;
 
             case Notifies.AIControllerDisableCurrentUnits:
@@ -68,9 +68,9 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                     NotifyHandler.N.QueueNotify(Notifies.OnLevelComplete);
                 }
 
-                // Notify the HUD of updated score and units remaining
-                NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateUnitsRemainingDisplay, model.RemainingUnits);
-                NotifyHandler.N.QueueNotify(Notifies.OnUpdateScore, model.UnitScoreValue);
+                // Notify of updated score and units remaining
+                NotifyHandler.N.QueueNotify(Notifies.OnAICountUpdated, model.RemainingUnits);
+                NotifyHandler.N.QueueNotify(Notifies.UpdateScore, model.UnitScoreValue);
                 break;
         }
     }

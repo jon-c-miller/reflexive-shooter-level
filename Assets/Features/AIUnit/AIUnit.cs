@@ -20,7 +20,7 @@ public class AIUnit : MonoBehaviour, ICanBeHit
         model.Health -= amount;
 
         // Play hit sound
-        NotifyHandler.N.QueueNotify(Notifies.OnPlaySound, SoundIDs.EnemyHit);
+        NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.EnemyHit);
 
         // Return unit if health depleted
         if (model.Health == 0)

@@ -9,7 +9,7 @@ public class SoundController : MonoBehaviour, IListener
     {
         switch (notifyID)
         {
-            case Notifies.OnPlaySound:
+            case Notifies.PlaySound:
                 SoundIDs soundToPlay = (SoundIDs)data[0];
                 PlaySoundBasedOnID(soundToPlay);
                 break;

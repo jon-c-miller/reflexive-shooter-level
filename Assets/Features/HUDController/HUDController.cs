@@ -16,22 +16,22 @@ public class HUDController : MonoBehaviour, IListener
                 view.SetTextSizeAndColor(model);
                 break;
 
-            case Notifies.HUDControllerUpdateUnitsRemainingDisplay:
-                int unitsRemaining = (int)data[0];
-                view.UpdateUnitsRemainingDisplay(unitsRemaining);
-                break;
-
-            case Notifies.HUDControllerUpdateHealthDisplay:
-                int healthRemaining = (int)data[0];
-                view.UpdateHealthDisplay(healthRemaining);
-                break;
-
-            case Notifies.HUDControllerUpdateScoreDisplay:
+            case Notifies.OnScoreDisplayUpdated:
                 int currentScore = (int)data[0];
                 view.UpdateScoreDisplay(currentScore);
                 break;
 
-            case Notifies.HUDControllerUpdateLevelDisplay:
+            case Notifies.OnAICountUpdated:
+                int unitsRemaining = (int)data[0];
+                view.UpdateUnitsRemainingDisplay(unitsRemaining);
+                break;
+
+            case Notifies.OnPlayerHealthUpdated:
+                int healthRemaining = (int)data[0];
+                view.UpdateHealthDisplay(healthRemaining);
+                break;
+
+            case Notifies.OnLevelDisplayUpdated:
                 int currentLevel = (int)data[0];
                 view.UpdateLevelDisplay(currentLevel);
                 break;
