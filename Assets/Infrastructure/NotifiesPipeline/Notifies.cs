@@ -55,10 +55,10 @@ public enum Notifies
     OnAIUnitDestroyed,
 
     /// <summary> n/a </summary>
-    OnLevelEnter,
+    OnEnterCombatArea,
 
     /// <summary> n/a </summary>
-    OnLevelExit,
+    OnExitCombatArea,
 
     /// <summary> n/a </summary>
     OnLevelStart,

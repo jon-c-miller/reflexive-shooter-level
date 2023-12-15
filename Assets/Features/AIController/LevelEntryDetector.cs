@@ -9,10 +9,17 @@ public class LevelEntryDetector : MonoBehaviour
         // Notify AIController to update its target and AI active status when player enters trigger area
         // Physics layer collision is limited to Player layer only, making tag checking redundant
         other.TryGetComponent(out ICanBeTargeted target);
-        NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, target, collisionEnablesAI);
 
-        // Enable player firing ability based on combat entry or exit
-        NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, collisionEnablesAI);
+        if (collisionEnablesAI)
+        {
+            NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, target, true);
+            NotifyHandler.N.QueueNotify(Notifies.OnEnterCombatArea);
+        }
+        else
+        {
+            NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
+        }
+
         Debug.Log($"AIControllerV: {other.name} entered collider.");
     }
 }

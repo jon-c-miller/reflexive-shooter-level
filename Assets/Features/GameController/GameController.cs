@@ -16,12 +16,14 @@ public class GameController : MonoBehaviour, IListener
                 NotifyHandler.N.QueueNotify(Notifies.OnScoreDisplayUpdated, model.Score);
                 break;
 
-            case Notifies.OnLevelEnter:
-
+            case Notifies.OnEnterCombatArea:
+                NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, true);
+                NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, true);
                 break;
 
-            case Notifies.OnLevelExit:
-
+            case Notifies.OnExitCombatArea:
+                NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, false);
+                NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, false);
                 break;
             
             case Notifies.OnLevelStart:
@@ -44,15 +46,14 @@ public class GameController : MonoBehaviour, IListener
             case Notifies.OnLevelComplete:
                 // Fade out the view and pass in a start next level delegate for when fade is complete
                 Debug.Log($"Level {model.Level} complete! Starting next level...");
-                NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, false);
-                NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, false);
+                NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, false);
                 view.ScreenFader.ExecuteFade(false, model.ScreenFadeRate, OnViewFadeToTransparentNextLevel);
                 break;
 
             case Notifies.OnLevelFailed:
                 Debug.Log($"Level {model.Level} failed. Restarting level...");
-                NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, false);
+                NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, false);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, null, false);
                 view.ScreenFader.ExecuteFade(false, model.ScreenFadeRate, OnViewFadeToTransparentRestartLevel);
@@ -64,7 +65,6 @@ public class GameController : MonoBehaviour, IListener
     {
         NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
         NotifyHandler.N.QueueNotify(Notifies.PlayerCamInitialize);
-        NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, true);
         NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
         NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, true);
         NotifyHandler.N.QueueNotify(Notifies.PlayerMovementInitialize);
@@ -121,7 +121,6 @@ public class GameController : MonoBehaviour, IListener
         {
             OnViewFadeToTransparentNextLevel();
             NotifyHandler.N.QueueNotify(Notifies.HUDControllerSetActiveStatus, true);
-            NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, true);
             NotifyHandler.N.QueueNotify(Notifies.PlayerCamSetActiveStatus, true);
             NotifyHandler.N.QueueNotify(Notifies.PlayerMovementInitialize);
             NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, true);
