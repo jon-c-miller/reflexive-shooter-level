@@ -20,9 +20,9 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
         }
         model.Health -= amount;
 
-        // Notify the HUD of updated health and play sound
+        // Notify the HUD of updated health and play hit sound
         NotifyHandler.N.QueueNotify(Notifies.HUDControllerUpdateHealthDisplay, model.Health);
-        NotifyHandler.N.QueueNotify(Notifies.SoundControllerOnPlayerHit);
+        NotifyHandler.N.QueueNotify(Notifies.OnPlaySound, SoundIDs.PlayerHit);
 
         // Defeat if health depleted
         if (model.Health == 0)

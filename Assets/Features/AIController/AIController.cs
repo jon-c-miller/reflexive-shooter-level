@@ -19,6 +19,9 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
             launchPosition += launchDirection * 0.5f;
 
             view.GetProjectile().Launch(launchDirection, launchPosition, model.AIProjectileLaunchVelocity, model.AIProjectileDamage);
+            
+            // Play enemy fire sound
+            NotifyHandler.N.QueueNotify(Notifies.OnPlaySound, SoundIDs.EnemyFire);
         }
     }
 

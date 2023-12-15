@@ -69,6 +69,6 @@ public enum Notifies
     /// <summary> int valueChange </summary>
     OnUpdateScore,
 
-    /// <summary> n/a </summary>
-    SoundControllerOnPlayerHit,
+    /// <summary> SoundIDs soundToPlay </summary>
+    OnPlaySound,
 }

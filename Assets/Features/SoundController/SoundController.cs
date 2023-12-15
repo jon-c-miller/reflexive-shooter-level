@@ -9,8 +9,25 @@ public class SoundController : MonoBehaviour, IListener
     {
         switch (notifyID)
         {
-            case Notifies.SoundControllerOnPlayerHit:
+            case Notifies.OnPlaySound:
+                SoundIDs soundToPlay = (SoundIDs)data[0];
+                PlaySoundBasedOnID(soundToPlay);
+                break;
+        }
+    }
+
+    void PlaySoundBasedOnID(SoundIDs soundToPlay)
+    {
+        switch (soundToPlay)
+        {
+            case SoundIDs.PlayerHit:
                 view.PlayerHit.PlayOneShot(view.PlayerHitClip);
+                break;
+            case SoundIDs.PlayerFire:
+                break;
+            case SoundIDs.EnemyHit:
+                break;
+            case SoundIDs.EnemyFire:
                 break;
         }
     }
