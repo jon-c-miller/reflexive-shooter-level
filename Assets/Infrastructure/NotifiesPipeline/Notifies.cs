@@ -49,6 +49,10 @@ public enum Notifies
     /// <summary> int unitsRemaining </summary>
     OnAIUnitDestroyed,
 
+    OnLevelStart,
+
+    OnLevelRestart,
+
     OnLevelComplete,
 
     OnLevelFailed,

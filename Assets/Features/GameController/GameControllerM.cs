@@ -4,13 +4,15 @@ using UnityEngine;
 public class GameControllerM
 {
     [Header("Configuration")]
+    public bool DebugMode;
     public bool ActivatePlayerCamera;
     public bool ActivatePlayerFiring;
     public bool ActivatePlayerHitDetection;
     public bool ActivatePlayerHUD;
     public bool ActivatePlayerMovement;
-    [Space]
     public bool ActivateAIController;
+    [Space]
+    public float ScreenFadeRate;
 
     [Header("Current")]
     public int Score;

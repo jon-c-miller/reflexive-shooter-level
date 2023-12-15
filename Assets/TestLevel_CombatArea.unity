@@ -2738,8 +2738,32 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
-      propertyPath: model.Level
-      value: 3
+      propertyPath: model.StartLevelOnPlay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.ForceActivatePlayerHUD
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.ForceActivateAIController
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.ForceActivatePlayerCamera
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.ForceActivatePlayerFiring
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.ForceActivatePlayerMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.ForceActivatePlayerHitDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5145691331248241405, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
       propertyPath: m_LocalPosition.x

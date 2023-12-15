@@ -21,6 +21,7 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
         // Defeat if health depleted
         if (model.Health == 0)
         {
+            model.IsActive = false;
             NotifyHandler.N.QueueNotify(Notifies.OnLevelFailed);
         }
     }
