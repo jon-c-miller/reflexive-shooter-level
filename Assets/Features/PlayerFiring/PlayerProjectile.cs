@@ -17,7 +17,14 @@ public class PlayerProjectile : MonoBehaviour
         transform.localPosition = launchPosition;
         gameObject.SetActive(true);
         collision.enabled = true;
+        rigidBody.useGravity = false;
         rigidBody.AddForce(direction * velocity, ForceMode.Impulse);
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        // Cause projectiles to fall once they hit wall
+        rigidBody.useGravity = true;
     }
 
     void OnTriggerEnter(Collider other)
