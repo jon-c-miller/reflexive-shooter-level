@@ -6,6 +6,7 @@ public enum Notifies
     /// <summary> Transform camTransform </summary>
     PlayerCamAnnounceSelfTransform,
 
+    /// <summary> n/a </summary>
     PlayerCamInitialize,
 
     /// <summary> bool isActive </summary>
@@ -20,6 +21,7 @@ public enum Notifies
     /// <summary> ICanBeTargeted self </summary>
     PlayerMovementAnnounceSelf,
 
+    /// <summary> n/a </summary>
     PlayerMovementInitialize,
 
     /// <summary> bool isActive </summary>
@@ -28,6 +30,7 @@ public enum Notifies
     /// <summary> ICanBeTargeted newTarget, bool isActive </summary>
     AIControllerSetAIActiveStatus,
 
+    /// <summary> n/a </summary>
     AIControllerDisableCurrentUnits,
 
     /// <summary> int currentLevel </summary>
@@ -51,12 +54,16 @@ public enum Notifies
     /// <summary> int unitsRemaining </summary>
     OnAIUnitDestroyed,
 
+    /// <summary> n/a </summary>
     OnLevelStart,
 
+    /// <summary> n/a </summary>
     OnLevelRestart,
 
+    /// <summary> n/a </summary>
     OnLevelComplete,
 
+    /// <summary> n/a </summary>
     OnLevelFailed,
 
     /// <summary> int valueChange </summary>
