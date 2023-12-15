@@ -8,6 +8,11 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
 
     public void IHit(int amount)
     {
+        if (!model.IsActive)
+        {
+            return;
+        }
+
         // Keep hit amount to within current health
         if (amount > model.Health)
         {
