@@ -42,11 +42,12 @@ public class AIUnit : MonoBehaviour, ICanBeHit
         gameObject.SetActive(isActive);
     }
 
-    public void Initialize(IKeepsTargets controller, Vector3 position)
+    public void Initialize(IKeepsTargets controller, Vector3 position, bool enableFireTracer)
     {
         model.AttackDelay = 1.5f;
         model.CurrentTime = model.TargetVisibleCheckDelay;
         model.AIController = controller;
+        model.EnableFireTracer = enableFireTracer;
         view.Model.transform.localPosition = position;
 
         gameObject.SetActive(true);
@@ -69,7 +70,13 @@ public class AIUnit : MonoBehaviour, ICanBeHit
             // Nudge the from position forward along the direction vector to avoid hitting the AI's model
             Vector3 from = view.Model.position + (direction.normalized * 0.5f);
 
-            Debug.DrawRay(from, direction, Color.red);
+            // Display the raycast to the player
+            if (model.EnableFireTracer)
+            {
+                Debug.DrawRay(from, direction, Color.red);
+            }
+
+            // Try to detect the player via raycast
             if (Physics.Raycast(from, direction, out RaycastHit hit))
             {
                 model.TargetIsVisible = hit.collider.CompareTag(PLAYERTAG);

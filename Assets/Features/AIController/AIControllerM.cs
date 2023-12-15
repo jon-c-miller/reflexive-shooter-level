@@ -10,6 +10,7 @@ public class AIControllerM
     public int UnitScoreValue = 5;
     public Vector3 SpawnRangeValueLimits = new();
     [Space]
+    public bool ShowFireTraceFromAIUnits;
     public bool ShowLogs;
 
     [Header("Current")]

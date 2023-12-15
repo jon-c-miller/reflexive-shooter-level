@@ -94,7 +94,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                 if (model.ShowLogs) Debug.Log($"Spawning unit...");
                 AIUnit unit = view.GetAIUnit();
                 model.CurrentLevelUnits.Add(unit);
-                unit.Initialize(this, spawnPosition);
+                unit.Initialize(this, spawnPosition, model.ShowFireTraceFromAIUnits);
                 unit.SetStatsBasedOnLevel(model.RemainingUnits);
             }
             else
