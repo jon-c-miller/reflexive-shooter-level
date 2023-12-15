@@ -14,7 +14,7 @@ public class PlayerFiring : MonoBehaviour, IListener
                 bool isActive = (bool)data[0];
                 model.IsActive = isActive;
                 // If enabling, reset the reticle position for smooth transition into combat
-                if (isActive)
+                if (isActive && view.Cam != null)
                 {
                     ResetReticle();
                 }
