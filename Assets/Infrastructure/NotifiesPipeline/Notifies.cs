@@ -6,6 +6,8 @@ public enum Notifies
     /// <summary> Transform camTransform </summary>
     PlayerCamAnnounceSelfTransform,
 
+    PlayerCamInitialize,
+
     /// <summary> bool isActive </summary>
     PlayerHitSetActiveStatus,
 
@@ -18,7 +20,7 @@ public enum Notifies
     /// <summary> ICanBeTargeted self </summary>
     PlayerMovementAnnounceSelf,
 
-    PlayerMovementReturnToStart,
+    PlayerMovementInitialize,
 
     /// <summary> bool isActive </summary>
     PlayerFiringSetActiveStatus,

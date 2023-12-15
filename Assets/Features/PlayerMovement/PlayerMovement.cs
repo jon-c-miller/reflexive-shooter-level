@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour, IListener, ICanBeTargeted
                 model.IsActive = isActive;
                 break;
 
-            case Notifies.PlayerMovementReturnToStart:
+            case Notifies.PlayerMovementInitialize:
                 view.InitializePosition();
                 break;
 

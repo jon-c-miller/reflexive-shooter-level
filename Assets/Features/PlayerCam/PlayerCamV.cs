@@ -8,6 +8,14 @@ public class PlayerCamV : MonoBehaviour
     const string XINPUT = "Mouse X";
     const string YINPUT = "Mouse Y";
 
+    public void InitializeRotation(PlayerCamM model)
+    {
+        model.VerticalInput = 0;
+        model.HorizontalInput = 0;
+        model.TargetRotation = Quaternion.identity;
+        cam.transform.rotation = Quaternion.identity;
+    }
+
     public void GetMouseInput(PlayerCamM model)
     {
         // Get rotation input for x axis (based on cam y input) and y axis (based on cam x input)

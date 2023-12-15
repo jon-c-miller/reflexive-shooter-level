@@ -16,6 +16,10 @@ public class PlayerCam : MonoBehaviour, IListener
                 view.Cam.enabled = isActive;
                 break;
 
+            case Notifies.PlayerCamInitialize:
+                view.InitializeRotation(model);
+                break;
+
             case Notifies.PlayerMovementAnnounceSelf:
                 model.Player = (ICanBeTargeted)data[0];
                 break;
