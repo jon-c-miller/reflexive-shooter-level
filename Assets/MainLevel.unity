@@ -2981,6 +2981,10 @@ PrefabInstance:
       value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
+      propertyPath: model.Level
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4934853733366614887, guid: ad63f7e7bd636f64abafbf9829ba23a0, type: 3}
       propertyPath: model.StartLevelOnPlay
       value: 1
       objectReference: {fileID: 0}

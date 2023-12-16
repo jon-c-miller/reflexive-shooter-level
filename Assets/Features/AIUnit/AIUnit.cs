@@ -8,8 +8,6 @@ public class AIUnit : MonoBehaviour, ICanBeHit
 
 	public static event System.Action<AIUnit> OnReturnAIUnit;
 
-    const string PLAYERTAG = "Player";
-
     public void IHit(int amount)
     {
         // Keep hit amount to within current health
@@ -36,12 +34,11 @@ public class AIUnit : MonoBehaviour, ICanBeHit
 
     public void SetObjectActiveStatus(bool isActive) => gameObject.SetActive(isActive);
 
-    public void Initialize(IKeepsTargets controller, Vector3 position, bool enableFireTracer)
+    public void Initialize(ILaunchesProjectiles controller, Vector3 position)
     {
         model.AttackDelay = 1.5f;
         model.CurrentTime = model.TargetVisibleCheckDelay;
         model.AIController = controller;
-        model.EnableFireTracer = enableFireTracer;
         view.Model.transform.localPosition = position;
 
         gameObject.SetActive(true);
@@ -55,27 +52,12 @@ public class AIUnit : MonoBehaviour, ICanBeHit
 
     void CheckPlayerVisible()
     {
-        if (model.AIController != null)
+        if (model.AIController == null)
         {
-            // Fire raycast to see if player in line of sight, setting TargetIsVisible based on whether hit player tag or not
-            Vector3 direction = model.AIController.ICurrentTargetsPosition - view.Model.position;
-
-            // Nudge the from position forward along the direction vector to avoid hitting the AI's model
-            Vector3 from = view.Model.position + (direction.normalized * 0.5f);
-
-            // Display the raycast to the player
-            if (model.EnableFireTracer)
-            {
-                Debug.DrawRay(from, direction, Color.red);
-            }
-
-            // Try to detect the player via raycast
-            if (Physics.Raycast(from, direction, out RaycastHit hit))
-            {
-                model.TargetIsVisible = hit.collider.CompareTag(PLAYERTAG);
-            }
+            return;
         }
 
+        model.TargetIsVisible = model.AIController.ICheckTargetVisible(view.Model.localPosition);
         model.CurrentTime = model.TargetVisibleCheckDelay;
     }
 

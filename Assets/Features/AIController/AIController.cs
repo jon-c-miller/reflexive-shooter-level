@@ -1,12 +1,12 @@
 using UnityEngine;
 
 /// <summary> Detects when player enters and exits the combat area, and manages enemy AI accordingly. </summary>
-public class AIController : MonoBehaviour, IListener, IKeepsTargets
+public class AIController : MonoBehaviour, IListener, ILaunchesProjectiles
 {
     [SerializeField] AIControllerV view;
     [SerializeField] AIControllerM model = new();
-
-    public Vector3 ICurrentTargetsPosition => model.CurrentTarget != null ? model.CurrentTarget.ICurrentPosition : Vector3.zero;
+    
+    const string PLAYERTAG = "Player";
 
     public void ILaunchAtTarget(Vector3 launchPosition)
     {
@@ -22,6 +22,34 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
             
             // Play enemy fire sound
             NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.EnemyFire);
+        }
+    }
+
+    public bool ICheckTargetVisible(Vector3 originPosition)
+    {
+        // Try to get the target's current position
+        Vector3 targetPosition = model.CurrentTarget != null ? model.CurrentTarget.ICurrentPosition : Vector3.zero;
+
+        // Fire raycast to see if target in line of sight, setting TargetIsVisible based on whether hit player tag or not
+        Vector3 direction = targetPosition - originPosition;
+
+        // Nudge the from position forward along the direction vector to avoid hitting the AI's model
+        Vector3 from = originPosition + (direction.normalized * 0.5f);
+
+        // Display the raycast to the player if desired
+        if (model.ShowFireTraceFromAIUnits)
+        {
+            Debug.DrawRay(from, direction, Color.red);
+        }
+
+        // Try to detect the player via raycast
+        if (Physics.Raycast(from, direction, out RaycastHit hit))
+        {
+            return hit.collider.CompareTag(PLAYERTAG);
+        }
+        else
+        {
+            return false;
         }
     }
 
@@ -100,7 +128,7 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
                 if (model.ShowLogs) Debug.Log($"Spawning unit...");
                 AIUnit unit = view.GetAIUnit();
                 model.CurrentLevelUnits.Add(unit);
-                unit.Initialize(this, spawnPosition, model.ShowFireTraceFromAIUnits);
+                unit.Initialize(this, spawnPosition);
                 unit.SetStatsBasedOnLevel(model.RemainingUnits);
             }
             else
