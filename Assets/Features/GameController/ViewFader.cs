@@ -61,8 +61,5 @@ public class ViewFader : MonoBehaviour
 		display.color = currentColor;
 	}
 
-	void OnDisable()
-	{
-		OnComplete = null;
-	}
+	void OnDisable() => OnComplete = null;
 }

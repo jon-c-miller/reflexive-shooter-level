@@ -54,8 +54,5 @@ public class PlayerHitDetection : MonoBehaviour, IListener, ICanBeHit
         }
     }
 
-    void Update()
-    {
-        view.KeepHitDetectionWithPlayer(model);
-    }
+    void Update() => view.KeepHitDetectionWithPlayer(model);
 }

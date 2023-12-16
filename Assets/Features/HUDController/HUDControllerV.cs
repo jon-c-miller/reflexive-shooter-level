@@ -34,23 +34,11 @@ public class HUDControllerV : MonoBehaviour
         levelText.fontSize = model.LevelTextSize;
     }
 
-    public void UpdateHealthDisplay(int health)
-    {
-        healthText.text = health.ToString();
-    }
+    public void UpdateHealthDisplay(int health) => healthText.text = health.ToString();
 
-    public void UpdateUnitsRemainingDisplay(int unitsRemaining)
-    {
-        unitsRemainingText.text = unitsRemaining.ToString();
-    }
+    public void UpdateUnitsRemainingDisplay(int unitsRemaining) => unitsRemainingText.text = unitsRemaining.ToString();
 
-    public void UpdateScoreDisplay(int score)
-    {
-        scoreText.text = score.ToString();
-    }
+    public void UpdateScoreDisplay(int score) => scoreText.text = score.ToString();
 
-    public void UpdateLevelDisplay(int level)
-    {
-        levelText.text = level.ToString();
-    }
+    public void UpdateLevelDisplay(int level) => levelText.text = level.ToString();
 }

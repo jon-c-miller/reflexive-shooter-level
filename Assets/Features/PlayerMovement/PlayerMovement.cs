@@ -27,10 +27,7 @@ public class PlayerMovement : MonoBehaviour, IListener, ICanBeTargeted
         }
     }
 
-    void Start()
-    {
-        NotifyHandler.N.QueueNotify(Notifies.PlayerMovementAnnounceSelf, this);
-    }
+    void Start() => NotifyHandler.N.QueueNotify(Notifies.PlayerMovementAnnounceSelf, this);
 
     void Update()
     {

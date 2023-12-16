@@ -53,10 +53,7 @@ public class AIProjectile : MonoBehaviour
         rigidBody.rotation = Quaternion.identity;
     }
 
-    public void SetActiveStatus(bool isActive)
-    {
-        gameObject.SetActive(isActive);
-    }
+    public void SetActiveStatus(bool isActive) => gameObject.SetActive(isActive);
 
     void Awake()
     {

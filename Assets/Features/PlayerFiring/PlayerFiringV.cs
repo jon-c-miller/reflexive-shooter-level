@@ -84,13 +84,7 @@ public class PlayerFiringV : MonoBehaviour
 		AddProjectile(9);
 	}
 
-	void OnEnable()
-	{
-		PlayerProjectile.OnReturnPlayerProjectile += ReturnProjectile;
-	}
+	void OnEnable() => PlayerProjectile.OnReturnPlayerProjectile += ReturnProjectile;
 
-	void OnDisable()
-	{
-		PlayerProjectile.OnReturnPlayerProjectile -= ReturnProjectile;
-	}
+	void OnDisable() => PlayerProjectile.OnReturnPlayerProjectile -= ReturnProjectile;
 }

@@ -30,20 +30,11 @@ public class AIUnit : MonoBehaviour, ICanBeHit
         }
     }
 
-    public void RecycleUnit()
-    {
-        OnReturnAIUnit?.Invoke(this);
-    }
+    public void RecycleUnit() => OnReturnAIUnit?.Invoke(this);
 
-    public void SetAIActiveStatus(bool isActive)
-    {
-        model.IsActive = isActive;
-    }
+    public void SetAIActiveStatus(bool isActive) => model.IsActive = isActive;
 
-    public void SetObjectActiveStatus(bool isActive)
-    {
-        gameObject.SetActive(isActive);
-    }
+    public void SetObjectActiveStatus(bool isActive) => gameObject.SetActive(isActive);
 
     public void Initialize(IKeepsTargets controller, Vector3 position, bool enableFireTracer)
     {

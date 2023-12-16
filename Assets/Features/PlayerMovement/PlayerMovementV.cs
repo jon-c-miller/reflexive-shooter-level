@@ -15,10 +15,7 @@ public class PlayerMovementV : MonoBehaviour
 
     float previousCamY;
 
-    public void InitializePosition()
-    {
-        playerRigidbody.position = startPosition.localPosition;
-    }
+    public void InitializePosition() => playerRigidbody.position = startPosition.localPosition;
 
     public void GetInput(PlayerMovementM model)
     {
