@@ -1356,6 +1356,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8569505140657682284, guid: 6718af79d54eec243ad0394fa96263ad, type: 3}
+      propertyPath: model.MaxQueuedSounds
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

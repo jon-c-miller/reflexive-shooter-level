@@ -11,8 +11,25 @@ public class SoundController : MonoBehaviour, IListener
         {
             case Notifies.PlaySound:
                 SoundIDs soundToPlay = (SoundIDs)data[0];
-                PlaySoundBasedOnID(soundToPlay);
+                QueueSound(soundToPlay);
                 break;
+        }
+    }
+
+    public void QueueSound(SoundIDs id)
+    {
+        if (id == SoundIDs.EnemyFire && model.QueuedEnemyFireSoundsCount < model.MaxQueueCountPerSound)
+        {
+            // Increase the amount of 'queued' fire sounds if the count is less than max simultaneously queued sound count
+            model.QueuedEnemyFireSoundsCount++;
+        }
+        else if (id == SoundIDs.PlayerHit && model.QueuedPlayerHitSoundsCount < model.MaxQueueCountPerSound)
+        {
+            model.QueuedPlayerHitSoundsCount++;
+        }
+        else if (id == SoundIDs.PlayerFire)
+        {
+            PlaySoundBasedOnID(SoundIDs.PlayerFire);
         }
     }
 
@@ -40,4 +57,21 @@ public class SoundController : MonoBehaviour, IListener
                 break;
         }
     }
+
+    void PlayHighFrequencySounds()
+    {
+        if (model.QueuedEnemyFireSoundsCount > 0 && Time.frameCount % model.FrameDelayForSameSounds == 0)
+        {
+            // Limit playing the 'queued' sound to every x frames; ensures that sound overlapping doesn't exceed voice limit
+            model.QueuedEnemyFireSoundsCount--;
+            PlaySoundBasedOnID(SoundIDs.EnemyFire);
+        }
+        if (model.QueuedPlayerHitSoundsCount > 0 && Time.frameCount % model.FrameDelayForSameSounds == 0)
+        {
+            model.QueuedPlayerHitSoundsCount--;
+            PlaySoundBasedOnID(SoundIDs.PlayerHit);
+        }
+    }
+
+    void Update() => PlayHighFrequencySounds();
 }

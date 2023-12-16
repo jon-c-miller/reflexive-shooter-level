@@ -15,7 +15,7 @@ public class NotifyHandler : MonoBehaviour
     {
         if (LogNotifies)
         {
-            Debug.LogWarning($"Notify {notifyID} added to queue.");
+            Debug.LogWarning($"Notify {notifyID} added to queue. Current queue size: {notifyQueue.Count}");
         }
 
         notifyQueue.Enqueue(new NotifyPackage(notifyID, data));
