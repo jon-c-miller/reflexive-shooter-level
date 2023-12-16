@@ -51,7 +51,6 @@ MonoBehaviour:
     Health: 1
     AttackDelay: 1.5
     TargetVisibleCheckDelay: 0.4
-    ScoreValue: 5
     TargetIsVisible: 0
     CurrentTime: 0
 --- !u!1 &2619586227709759478
@@ -110,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5596042648931157443}
   - component: {fileID: 7522758842719744477}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hit Detection
   m_TagString: Enemy
   m_Icon: {fileID: 0}
