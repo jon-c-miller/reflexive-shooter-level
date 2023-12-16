@@ -30,25 +30,28 @@ public class AIController : MonoBehaviour, IListener, IKeepsTargets
         switch (notifyID)
         {
             case Notifies.AIControllerSetAIActiveStatus:
-                bool isActive = (bool)data[1];
+                bool isActive = (bool)data[0];
 
                 // Ignore attempts to update AI status without any change from true to false
-                if (model.PlayerIsInCombatArea == isActive)
+                if (model.AIIsActive == isActive)
                 {
                     return;
                 }
 
+                model.AIIsActive = isActive;
+                SetAIActiveStatus(isActive);
+                if (model.ShowLogs) Debug.Log($"Obtained target {model.CurrentTarget}. Setting AI active status to {isActive}...");
+                break;
+
+            case Notifies.AIControllerSetTarget:
                 model.CurrentTarget = (ICanBeTargeted)data[0];
-                model.PlayerIsInCombatArea = isActive;
-                SetAIActiveStatus(model.PlayerIsInCombatArea);
-                if (model.ShowLogs) Debug.Log($"Obtained target {model.CurrentTarget}. Setting AI active status to {model.PlayerIsInCombatArea}...");
                 break;
 
             case Notifies.AIControllerSpawnUnits:
                 int currentLevel = (int)data[0];
                 // Set AI stats based on level, and spawn units equal to the current level
                 model.RemainingUnits = currentLevel;
-                model.PlayerIsInCombatArea = false;
+                model.AIIsActive = false;
                 SetAIStatsBasedOnLevel(currentLevel);
                 SpawnAI();
                 // NotifyHandler.N.QueueNotify(Notifies.OnAICountUpdated, model.RemainingUnits);

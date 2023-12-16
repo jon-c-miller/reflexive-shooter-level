@@ -1,6 +1,6 @@
 public enum Notifies
 {
-    /// <summary> ICanBeTargeted newTarget, bool isActive </summary>
+    /// <summary> bool isActive </summary>
     AIControllerSetAIActiveStatus,
 
     /// <summary> bool isActive </summary>
@@ -15,6 +15,9 @@ public enum Notifies
     /// <summary> bool isActive </summary>
     PlayerMovementSetActiveStatus,
 
+
+    /// <summary> ICanBeTargeted newTarget </summary>
+    AIControllerSetTarget,
 
     /// <summary> Transform camTransform </summary>
     PlayerCamAnnounceSelfTransform,

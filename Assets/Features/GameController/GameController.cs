@@ -19,11 +19,13 @@ public class GameController : MonoBehaviour, IListener
             case Notifies.OnEnterCombatArea:
                 NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, true);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, true);
+                NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, true);
                 break;
 
             case Notifies.OnExitCombatArea:
                 NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetActiveStatus, false);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerFiringSetActiveStatus, false);
+                NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, false);
                 break;
             
             case Notifies.OnLevelStart:
@@ -54,7 +56,6 @@ public class GameController : MonoBehaviour, IListener
             case Notifies.OnLevelFailed:
                 NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, false);
-                NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, null, false);
                 view.ScreenFader.ExecuteFade(false, model.ScreenFadeRate, OnViewFadeToTransparentRestartLevel);
                 NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.LevelFail);
                 break;

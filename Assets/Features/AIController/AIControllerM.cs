@@ -15,7 +15,7 @@ public class AIControllerM
 
     [Header("Current")]
     public int RemainingUnits = 1;
-    public bool PlayerIsInCombatArea;
+    public bool AIIsActive;
     public List<AIUnit> CurrentLevelUnits = new();
 
     public ICanBeTargeted CurrentTarget;

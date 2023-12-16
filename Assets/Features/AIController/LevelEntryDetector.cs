@@ -12,7 +12,7 @@ public class LevelEntryDetector : MonoBehaviour
 
         if (collisionEnablesAI)
         {
-            NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, target, true);
+            NotifyHandler.N.QueueNotify(Notifies.AIControllerSetTarget, target);
             NotifyHandler.N.QueueNotify(Notifies.OnEnterCombatArea);
         }
         else
