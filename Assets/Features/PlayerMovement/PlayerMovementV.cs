@@ -29,8 +29,8 @@ public class PlayerMovementV : MonoBehaviour
         // Get jump input
         if (Input.GetKeyDown(model.JumpKey))
         {
-            // If infinite jump isn't intended, only jump when near the ground and velocity indicates nearly stationary state
-            if (!model.AllowInfiniteJump && PlayerTransform.localPosition.y < 0.6f && Mathf.Abs(playerRigidbody.velocity.y) < 0.01f)
+            // If infinite jump isn't intended, only jump when near the ground or velocity indicates a vertical stationary state
+            if (!model.AllowInfiniteJump && (PlayerTransform.localPosition.y < 0.6f || Mathf.Abs(playerRigidbody.velocity.y) < 0.01f))
             {
                 playerRigidbody.AddForce(Vector3.up * model.JumpForce, ForceMode.Impulse);
             }
