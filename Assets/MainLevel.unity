@@ -2825,6 +2825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NotifyHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 4373072600127592651, guid: e52275f5d6443434697ceee6953f1b79, type: 3}
+      propertyPath: LogNotifies
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

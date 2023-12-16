@@ -31,7 +31,11 @@ public class NotifyHandler : MonoBehaviour
                 listenersInScene.Add(listener);
         }
         listeners = listenersInScene.ToArray();
-        Debug.LogWarning($"Found {listeners.Length} listener(s).");
+
+        if (LogNotifies)
+        {
+            Debug.LogWarning($"Found {listeners.Length} listener(s).");
+        }
     }
 
     void Awake()
