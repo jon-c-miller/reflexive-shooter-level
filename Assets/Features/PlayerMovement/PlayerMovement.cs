@@ -1,12 +1,10 @@
 using UnityEngine;
 
 /// <summary> Handles player movement input and execution. Uses and updates camera's transform (passed in via IOnNotify) for move direction. </summary>
-public class PlayerMovement : MonoBehaviour, IListener, ICanBeTargeted
+public class PlayerMovement : MonoBehaviour, IListener
 {
     [SerializeField] PlayerMovementV view;
     [SerializeField] PlayerMovementM model = new();
-
-    public Vector3 ICurrentPosition => view.PlayerTransform.localPosition;
 
     public void IOnNotify(Notifies notifyID, params object[] data)
     {
@@ -27,7 +25,7 @@ public class PlayerMovement : MonoBehaviour, IListener, ICanBeTargeted
         }
     }
 
-    void Start() => NotifyHandler.N.QueueNotify(Notifies.PlayerMovementAnnounceSelf, this);
+    void Start() => NotifyHandler.N.QueueNotify(Notifies.PlayerMovementAnnounceSelf, view);
 
     void Update()
     {

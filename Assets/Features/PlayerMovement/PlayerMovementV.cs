@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovementV : MonoBehaviour
+public class PlayerMovementV : MonoBehaviour, ICanBeTargeted
 {
     public Transform PlayerTransform;
 
@@ -9,6 +9,8 @@ public class PlayerMovementV : MonoBehaviour
     [SerializeField] Transform startPosition;
 
     [HideInInspector] public Transform Cam;
+
+    public Vector3 ICurrentPosition => PlayerTransform.localPosition;
 
     const string HORIZONTALINPUT = "Horizontal";
     const string VERTICALINPUT = "Vertical";
