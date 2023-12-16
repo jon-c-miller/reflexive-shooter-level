@@ -124,8 +124,6 @@ public class GameController : MonoBehaviour, IListener
             OnViewFadeToTransparentNextLevel();
             NotifyHandler.N.QueueNotify(Notifies.HUDControllerSetActiveStatus, true);
             NotifyHandler.N.QueueNotify(Notifies.PlayerCamSetActiveStatus, true);
-            NotifyHandler.N.QueueNotify(Notifies.PlayerMovementInitialize);
-            NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, true);
         }
     }
 }
