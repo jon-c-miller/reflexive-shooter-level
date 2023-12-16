@@ -49,6 +49,7 @@ public class GameController : MonoBehaviour, IListener
                 NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, false);
                 view.ScreenFader.ExecuteFade(false, model.ScreenFadeRate, OnViewFadeToTransparentNextLevel);
+                NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.LevelComplete);
                 break;
 
             case Notifies.OnLevelFailed:
@@ -57,6 +58,7 @@ public class GameController : MonoBehaviour, IListener
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, false);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, null, false);
                 view.ScreenFader.ExecuteFade(false, model.ScreenFadeRate, OnViewFadeToTransparentRestartLevel);
+                NotifyHandler.N.QueueNotify(Notifies.PlaySound, SoundIDs.LevelFail);
                 break;
         }
     }

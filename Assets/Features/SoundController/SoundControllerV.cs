@@ -13,4 +13,7 @@ public class SoundControllerV : MonoBehaviour
     [Space]
     public AudioClip EnemyFireClip;
     public AudioSource EnemyFire;
+    [Space]
+    public AudioSource LevelComplete;
+    public AudioSource LevelFail;
 }

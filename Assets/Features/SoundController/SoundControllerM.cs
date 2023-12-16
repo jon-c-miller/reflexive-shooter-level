@@ -10,4 +10,6 @@ public enum SoundIDs
     PlayerFire,
     EnemyHit,
     EnemyFire,
+    LevelComplete,
+    LevelFail,
 }

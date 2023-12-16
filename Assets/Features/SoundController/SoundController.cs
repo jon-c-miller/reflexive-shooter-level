@@ -24,10 +24,19 @@ public class SoundController : MonoBehaviour, IListener
                 view.PlayerHit.PlayOneShot(view.PlayerHitClip);
                 break;
             case SoundIDs.PlayerFire:
+                view.PlayerFire.PlayOneShot(view.PlayerFireClip);
                 break;
             case SoundIDs.EnemyHit:
+                view.EnemyHit.PlayOneShot(view.EnemyHitClip);
                 break;
             case SoundIDs.EnemyFire:
+                view.EnemyFire.PlayOneShot(view.EnemyFireClip);
+                break;
+            case SoundIDs.LevelComplete:
+                view.LevelComplete.Play();
+                break;
+            case SoundIDs.LevelFail:
+                view.LevelFail.Play();
                 break;
         }
     }
