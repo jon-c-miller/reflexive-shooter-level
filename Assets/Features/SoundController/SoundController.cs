@@ -31,6 +31,10 @@ public class SoundController : MonoBehaviour, IListener
         {
             PlaySoundBasedOnID(SoundIDs.PlayerFire);
         }
+        else if (id == SoundIDs.EnemyHit)
+        {
+            PlaySoundBasedOnID(SoundIDs.EnemyHit);
+        }
     }
 
     void PlaySoundBasedOnID(SoundIDs soundToPlay)
@@ -58,7 +62,7 @@ public class SoundController : MonoBehaviour, IListener
         }
     }
 
-    void PlayHighFrequencySounds()
+    void HandleHighFrequencySoundQueues()
     {
         if (model.QueuedEnemyFireSoundsCount > 0 && Time.frameCount % model.FrameDelayForSameSounds == 0)
         {
@@ -73,5 +77,5 @@ public class SoundController : MonoBehaviour, IListener
         }
     }
 
-    void Update() => PlayHighFrequencySounds();
+    void Update() => HandleHighFrequencySoundQueues();
 }
