@@ -19,7 +19,5 @@ public class LevelEntryDetector : MonoBehaviour
         {
             NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
         }
-
-        Debug.Log($"AIControllerV: {other.name} entered collider.");
     }
 }

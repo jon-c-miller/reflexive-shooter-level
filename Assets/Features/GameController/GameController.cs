@@ -45,7 +45,6 @@ public class GameController : MonoBehaviour, IListener
 
             case Notifies.OnLevelComplete:
                 // Fade out the view and pass in a start next level delegate for when fade is complete
-                Debug.Log($"Level {model.Level} complete! Starting next level...");
                 NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, false);
                 view.ScreenFader.ExecuteFade(false, model.ScreenFadeRate, OnViewFadeToTransparentNextLevel);
@@ -53,7 +52,6 @@ public class GameController : MonoBehaviour, IListener
                 break;
 
             case Notifies.OnLevelFailed:
-                Debug.Log($"Level {model.Level} failed. Restarting level...");
                 NotifyHandler.N.QueueNotify(Notifies.OnExitCombatArea);
                 NotifyHandler.N.QueueNotify(Notifies.PlayerMovementSetActiveStatus, false);
                 NotifyHandler.N.QueueNotify(Notifies.AIControllerSetAIActiveStatus, null, false);

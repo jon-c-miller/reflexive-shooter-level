@@ -34,7 +34,6 @@ public class PlayerProjectile : MonoBehaviour
         hit?.IHit(hitAmount);
         collision.enabled = false;
         ReturnProjectile();
-        Debug.Log($"Hit {other.name}.");
     }
 
     void ReturnProjectile()

@@ -54,7 +54,6 @@ public class AIUnit : MonoBehaviour, ICanBeHit
         view.Model.transform.localPosition = position;
 
         gameObject.SetActive(true);
-        Debug.Log($"{this.name} initialized.");
     }
 
     public void SetStatsBasedOnLevel(int currentLevel)
