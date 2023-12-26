@@ -28,7 +28,7 @@ An example of a endless level first person shooter with a modular infrastructure
   <ul><br>
 	  <b>AI Controller</b>
 	  <br>
-	  This module manages AI unit spawning, and keeps a reference that allows individual AI units to detect and attack the player. Notifies upon AI units being destroyed are also filtered in this module, and level completion is triggered when all units have been destroyed. A cached reference to an interface (obtained from the player during level entry detection via the notifies pipeline) providing access to the player hit detection transform's position allows the module to receive requests from AI units to Raycast to and fire at the player's current position.
+	  This module manages AI unit spawning, and keeps a reference that allows individual AI units to detect and attack the player. Notifies upon AI units being destroyed are also filtered in this module, and level completion is triggered when all units have been destroyed. A cached reference to an interface (obtained from the player during level entry detection via the notifies pipeline) providing access to the player hit detection transform's position allows the module to carry out requests from AI units to Raycast to and fire at the player's current position.
 	  <br><br>
 	  <b>AI Unit</b>
 	  <br>
@@ -79,7 +79,7 @@ An example of a endless level first person shooter with a modular infrastructure
 	  <br><br>	  
 	  <b>Constructing a Reliable Reticle</b>
 	  <br>
-	  A fairly labor-intensive aspect was the design of the reflexive aiming system. In many (if not most) FPS aiming implementations, the target reticle is simply a screen overlay, and is thus not a true estimate of where the shot will land (especially at close ranges). If the firing vector is calculated based on the reticle's projected position onscreen as a solution to this, the sudden changes in shot direction can be alarming and cause the user experience to suffer. In order to avoid this type of consistency and have a reticle that reliably predicted a launched projectile's hit point, a 3D sphere object serving as the reticle along with a Raycast system was used.
+	  A fairly labor-intensive aspect was the design of the reflexive aiming system. In many (if not most) FPS aiming implementations, the target reticle is simply a screen overlay, and is thus not a true estimate of where the shot will land (especially at close ranges). If the firing vector is calculated based on the reticle's projected position onscreen as a solution to this, the sudden changes in shot direction can be alarming and cause the user experience to suffer. In order to avoid this type of inconsistency and have a reticle that reliably predicted a launched projectile's hit point, a 3D sphere object serving as the reticle along with a Raycast system was used.
 	  <br><br>
 	  In order to obtain an end point beyond a given aimed at object, a light amount of vector math using an arbitrary distant point (default of 750 units away) extended from the camera's forward facing is used. A directional vector is then created using this point and the camera's current position. This allows a Raycast to attempt to extend a ray to that distant point every frame, and let an interception point from a hit object serve as the reticle's intended position.
 	  <br><br>
