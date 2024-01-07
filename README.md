@@ -123,7 +123,7 @@ An example of an endless level first person shooter with a modular infrastructur
 		<br>
 		<b>2.</b> Enable gizmos in Play Mode
 		<br>
-		<b>3.</b> Open MainLevel scene and set desired Level in inspector
+		<b>3.</b> Open MainLevel scene and set desired Level in GameController in inspector
 		<br>
 		<b>4.</b> Play scene
 		<br><br>
