@@ -27,13 +27,9 @@ public class SoundController : MonoBehaviour, IListener
         {
             model.QueuedPlayerHitSoundsCount++;
         }
-        else if (id == SoundIDs.PlayerFire)
+        else
         {
-            PlaySoundBasedOnID(SoundIDs.PlayerFire);
-        }
-        else if (id == SoundIDs.EnemyHit)
-        {
-            PlaySoundBasedOnID(SoundIDs.EnemyHit);
+            PlaySoundBasedOnID(id);
         }
     }
 
