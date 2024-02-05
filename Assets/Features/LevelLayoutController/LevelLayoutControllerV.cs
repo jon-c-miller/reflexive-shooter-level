@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class LevelLayoutControllerV : MonoBehaviour
 {
     [SerializeField] GameObject[] obstacleObjects;
 
-    public IObstacle[] LevelObstacles;
+    public List<IObstacle> LevelObstacles = new();
 
     void Awake()
     {
@@ -15,7 +14,7 @@ public class LevelLayoutControllerV : MonoBehaviour
         {
             if (obstacleObjects[i].TryGetComponent(out IObstacle obstacleInterface))
             {
-                LevelObstacles.Append(obstacleInterface);
+                LevelObstacles.Add(obstacleInterface);
             }
         }
     }

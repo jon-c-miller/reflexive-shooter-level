@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelLayoutController : MonoBehaviour, IListener
@@ -11,7 +10,9 @@ public class LevelLayoutController : MonoBehaviour, IListener
         switch (notifyID)
         {
             case Notifies.LevelLayoutRandomize:
-                for (int i = 0; i < view.LevelObstacles.Length; i++)
+                if (!model.EnableLayoutRandomization) return;
+
+                for (int i = 0; i < view.LevelObstacles.Count; i++)
                 {
                     view.LevelObstacles[i].IRandomizePositionBasedOnDeviationLimits();
                 }
