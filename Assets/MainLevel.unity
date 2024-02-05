@@ -1368,6 +1368,10 @@ PrefabInstance:
       propertyPath: deviationLimitZ
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6302841594048757306, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: model.EnableLayoutRandomization
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6720435835631569391, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
       propertyPath: deviationLimitX
       value: 7
