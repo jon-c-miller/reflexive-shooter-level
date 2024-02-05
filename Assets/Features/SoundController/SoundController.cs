@@ -18,14 +18,16 @@ public class SoundController : MonoBehaviour, IListener
 
     public void QueueSound(SoundIDs id)
     {
-        if (id == SoundIDs.EnemyFire && model.QueuedEnemyFireSoundsCount < model.MaxQueueCountPerSound)
+        if (id == SoundIDs.EnemyFire)
         {
             // Increase the amount of 'queued' fire sounds if the count is less than max simultaneously queued sound count
-            model.QueuedEnemyFireSoundsCount++;
+            if (model.QueuedEnemyFireSoundsCount < model.MaxQueueCountPerSound)
+                model.QueuedEnemyFireSoundsCount++;
         }
-        else if (id == SoundIDs.PlayerHit && model.QueuedPlayerHitSoundsCount < model.MaxQueueCountPerSound)
+        else if (id == SoundIDs.PlayerHit)
         {
-            model.QueuedPlayerHitSoundsCount++;
+            if (model.QueuedPlayerHitSoundsCount < model.MaxQueueCountPerSound)
+                model.QueuedPlayerHitSoundsCount++;
         }
         else
         {
