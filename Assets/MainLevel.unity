@@ -1344,13 +1344,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1890465790771716321, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitX
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3547066010989165813, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitZ
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4237747112985646867, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
       propertyPath: m_Name
       value: LevelLayoutController
       objectReference: {fileID: 0}
-    - target: {fileID: 8007491347795234425, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -18
+    - target: {fileID: 4634053083436089957, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313751178237275722, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitX
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5313751178237275722, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitZ
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720435835631569391, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitX
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720435835631569391, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitZ
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997088053609382563, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitX
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997088053609382563, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitZ
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7332470175947205015, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: deviationLimitX
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
