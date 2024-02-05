@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour, IListener
 
     void InitializeModulesForLevelStart()
     {
+        NotifyHandler.N.QueueNotify(Notifies.LevelLayoutRandomize);
         NotifyHandler.N.QueueNotify(Notifies.AIControllerSpawnUnits, model.Level);
         NotifyHandler.N.QueueNotify(Notifies.PlayerCamInitialize);
         NotifyHandler.N.QueueNotify(Notifies.PlayerHitSetStatsBasedOnLevel, model.Level);
