@@ -1348,6 +1348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLayoutController
       objectReference: {fileID: 0}
+    - target: {fileID: 8007491347795234425, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

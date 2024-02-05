@@ -80,6 +80,7 @@ public class AIController : MonoBehaviour, IListener, ILaunchesProjectiles
                 // Set AI stats based on level, and spawn units equal to the current level
                 model.RemainingUnits = currentLevel;
                 model.AIIsActive = false;
+                view.NoSpawnArea.SetActive(true);
                 SetAIStatsBasedOnLevel(currentLevel);
                 SpawnAI();
                 // NotifyHandler.N.QueueNotify(Notifies.OnAICountUpdated, model.RemainingUnits);
@@ -141,6 +142,8 @@ public class AIController : MonoBehaviour, IListener, ILaunchesProjectiles
                 else continue;
             }
         }
+        // Disable the no spawn area so it doesn't interfere with ai raycast targeting
+        view.NoSpawnArea.SetActive(false);
     }
 
     void SetAIStatsBasedOnLevel(int currentLevel)
