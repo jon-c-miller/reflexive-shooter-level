@@ -43,6 +43,9 @@ public enum Notifies
     /// <summary> int currentLevel </summary>
     AIControllerSpawnUnits,
 
+    /// <summary> n/a </summary>
+    LevelLayoutRandomize,
+
 
     /// <summary> SoundIDs soundToPlay </summary>
     PlaySound,
