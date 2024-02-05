@@ -110,6 +110,7 @@ public class AIController : MonoBehaviour, IListener, ILaunchesProjectiles
     {
         model.CurrentLevelUnits.Clear();
         // Spawn the desired amount
+        int tries = 999;
         for (int i = 0; i < model.RemainingUnits; i++)
         {
             if (model.ShowLogs) Debug.Log($"Attempting to spawn...");
@@ -133,8 +134,11 @@ public class AIController : MonoBehaviour, IListener, ILaunchesProjectiles
             }
             else
             {
+                // Ignore the current attempt if the spawn failed (and prevent an endless loop)
                 i--;
-                continue;
+                tries--;
+                if (tries < 1) break;
+                else continue;
             }
         }
     }
