@@ -42,6 +42,10 @@ An example of an endless level first person shooter with a modular infrastructur
 		<br>
 		This module manages the heads up display for the player, and listens for updates to the current score, enemy count in the level, current player health, and the current level itself. Instead of a single canvas containing all of these elements, a separate canvas for each element was used to avoid superfluous canvas updates to those elements that haven't changed.
 		<br><br>
+		<b>· Level Layout Controller ·</b>
+		<br>
+		This module handles randomly rotating the entire level in 90-degree increments on the y-axis, as well as adding randomization to obstacle positions to lend environmental variation to gameplay. To accomplish this, the controller keeps a collection of IObstacle interface references and instructs them at level start to add deviation to their original positions based on the predetermined x and z-axis deviation limits on each obstacle. For simplicity and predictability reasons, each obstacle's deviation limits were set manually to ensure that there are no potential overlaps with other obstacles, and that there is always a path for the player to navigate through.
+		<br><br>
 		<b>· Player Camera ·</b>
 		<br>
 		This module provides a first person view with 360° rotation on the y-axis and configurable rotation on the x-axis. On Start(), it passes via the notifies pipeline the transform of the camera object for any modules that need access to the camera's position or facing. The camera logic itself was more or less written from scratch, and is intended to be as simple and performant as possible while providing a smooth experience. A cached reference to an interface (obtained during Start() via the notifies pipeline) providing access to the player movement transform's position allows the camera to constantly stay with the player.
@@ -65,7 +69,7 @@ An example of an endless level first person shooter with a modular infrastructur
 </details>
 
 <details>
-	<summary>Challenges and Learning</summary>
+	<summary>Reflection On Development</summary>
 	<ul><br>
 		<b>· Solving for Minimal Dependency ·</b>
 		<br>
@@ -83,7 +87,7 @@ An example of an endless level first person shooter with a modular infrastructur
 		<br><br>
 		In order to obtain an end point beyond a given aimed at object, a light amount of vector math using an arbitrary distant point (default of 750 units away) extended from the camera's forward facing is used. A directional vector is then created using this point and the camera's current position. This allows a Raycast to attempt to extend a ray to that distant point every frame, and let an interception point from a hit object serve as the reticle's intended position.
 		<br><br>
-		In order to ensure that the reticle appears the same size regardless of distance, the reticle object's scale is updated based on a multiplier along with the square distance between the hit point and the camera's current position. As a sky is generally not intended to play a part in aiming, it was decided that the reticle would simply be hidden when not aiming at an object in the level. In this case, the reticle scale is kept at 0 and its position is set to directly in front of the camera. Because the reticle's position is lerped, it appears to quickly snap back to the hit point, creating a fluid experience when the player again aims at a valid object.
+		To ensure that the reticle appears the same size regardless of distance, the reticle object's scale is updated based on a multiplier along with the square distance between the hit point and the camera's current position. As a sky is generally not intended to play a part in aiming, it was decided that the reticle would simply be hidden when not aiming at an object in the level. In this case, the reticle scale is kept at 0 and its position is set to directly in front of the camera. Because the reticle's position is lerped, it appears to quickly snap back to the hit point, creating a fluid experience when the player again aims at a valid object.
 		<br><br>
 		<b>· Economizing on Target Logistics ·</b>
 		<br>
@@ -102,7 +106,7 @@ An example of an endless level first person shooter with a modular infrastructur
 <details>
 	<summary>Ideas for Future Additions</summary>
 	<ul><br>
-		· A level layout controller which randomizes the position of obstacles in the map using an array of Obstacle class objects that define their own constraints for randomization (+ or -10 units along z-plane, etc.)
+		· Adapt the level layout controller to use a more dynamic system that utilizes colliders and overlap detection instead of predetermined deviation values per obstacle 
 		<br><br>
 		· Lerping UI text elements upon changes, or replacing them entirely with bars or other image-related elements
 		<br><br>
