@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5751655469553217610}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Environment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 6459783635815231872}
   m_Layer: 0
   m_Name: View
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
