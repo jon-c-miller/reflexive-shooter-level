@@ -1304,6 +1304,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 986235073496399872, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: m_Name
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1631837307176038516, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1344,56 +1348,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1890465790771716321, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitX
-      value: 8
+    - target: {fileID: 2593666208410845959, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3547066010989165813, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitZ
-      value: 8
+    - target: {fileID: 2593666208410845959, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4237747112985646867, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
       propertyPath: m_Name
       value: LevelLayoutController
       objectReference: {fileID: 0}
-    - target: {fileID: 4634053083436089957, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitX
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5313751178237275722, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitX
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5313751178237275722, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitZ
-      value: 3
+    - target: {fileID: 4694604198086656209, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
+      propertyPath: m_Name
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 6302841594048757306, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
       propertyPath: model.EnableLayoutRandomization
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6720435835631569391, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitX
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720435835631569391, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitZ
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6997088053609382563, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitX
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6997088053609382563, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitZ
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7332470175947205015, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
-      propertyPath: deviationLimitX
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7795366186269952616, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1d7bbc7f9572841850cbde39adc227, type: 3}
