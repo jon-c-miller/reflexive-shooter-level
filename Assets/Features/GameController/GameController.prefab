@@ -1735,4 +1735,4 @@ MonoBehaviour:
     ActivateAIController: 0
     ScreenFadeRate: 1
     Score: 0
-    Level: 0
+    Level: 1
