@@ -132,6 +132,7 @@ public class AIController : MonoBehaviour, IListener, ILaunchesProjectiles
                 model.CurrentLevelUnits.Add(unit);
                 unit.Initialize(this, spawnPosition);
                 unit.SetStatsBasedOnLevel(model.RemainingUnits);
+                tries = 999;
             }
             else
             {
