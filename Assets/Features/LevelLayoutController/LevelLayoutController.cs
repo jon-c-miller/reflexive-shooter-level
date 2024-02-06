@@ -18,8 +18,7 @@ public class LevelLayoutController : MonoBehaviour, IListener
                     // Rotate the level in multiples of 90 degrees randomly
                     int rotationTurns = Random.Range(0, 4);
                     int randomYRotation = 90 * rotationTurns;
-                    Quaternion newRotation = Quaternion.Euler(new Vector3(0, randomYRotation, 0));
-                    view.transform.localRotation = newRotation;
+                    view.transform.localRotation = Quaternion.Euler(new Vector3(0, randomYRotation, 0));
                 }
 
                 if (model.EnableLayoutRandomization)
